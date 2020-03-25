@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>References | DrugLogics Software Documentation</title>
+  <title>Modeloutputs | DrugLogics Software Documentation</title>
   <meta name="description" content="Description" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="References | DrugLogics Software Documentation" />
+  <meta property="og:title" content="Modeloutputs | DrugLogics Software Documentation" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://bblodfon.github.io/druglogics-doc/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="bblodfon/druglogics-doc" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="References | DrugLogics Software Documentation" />
+  <meta name="twitter:title" content="Modeloutputs | DrugLogics Software Documentation" />
   
   <meta name="twitter:description" content="Description" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="drugpanel.html"/>
-
+<link rel="prev" href="training-data.html"/>
+<link rel="next" href="gitsbeConfig.html"/>
 <script src="libs/header-attrs-2.1/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -125,37 +125,53 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1 unnumbered" number="">
-<h1>References</h1>
-
-<div id="refs" class="references hanging-indent">
-<div id="ref-BLISS1939">
-<p>Bliss, C. I. 1939. “The Toxicity of Poisons Applied Jointly.” <em>Annals of Applied Biology</em> 26 (3): 585–615. <a href="https://doi.org/10.1111/j.1744-7348.1939.tb06990.x">https://doi.org/10.1111/j.1744-7348.1939.tb06990.x</a>.</p>
+<div id="modeloutputs" class="section level2 unnumbered" number="">
+<h2>Modeloutputs</h2>
+<p>The <code>modeloutputs</code> is an input file that is used by both <a href="gitsbe.html#gitsbe">Gitsbe</a> and <a href="drabme.html#drabme">Drabme</a>.
+In the file, <strong>network nodes with their respective integer weights</strong> are defined, like in the example below:</p>
+<div id="example-modeloutputs" class="green-box fitcontent">
+<p>RPS6KA1   1<br />
+MYC   1<br />
+TCF7   1<br />
+CASP8   -1<br />
+CASP9   -1<br />
+FOXO3   -1</p>
 </div>
-<div id="ref-Naldi2018">
-<p>Naldi, Aurélien. 2018. “BioLQM: A Java Toolkit for the Manipulation and Conversion of Logical Qualitative Models of Biological Networks.” <em>Frontiers in Physiology</em> 9 (November): 1605. <a href="https://doi.org/10.3389/fphys.2018.01605">https://doi.org/10.3389/fphys.2018.01605</a>.</p>
+<p>The nodes are <em>tab-separated</em> with the values and indicate the entities that directly influence the cell’s global <em>signaling output</em> or <em>growth</em>: nodes that have a <em>negative</em> output value weight contribute to <strong>cell death</strong> through various means (e.g. <code>CASP8</code>) and nodes that have a <em>positive</em> value contribute to <strong>cell proliferation</strong> (e.g. <code>MYC</code>).
+We allow only integer values for the node weights while their magnitude allows to distinct each node by how much do they influence cell death/proliferation: for example, a weight of <span class="math inline">\(-2\)</span> for the node <code>CASP8</code> would make it twice more important for cell death as a node who has a value of <span class="math inline">\(-1\)</span>.</p>
+<p>So, for each <a href="training-data.html#training-data">training data observation</a> where we need to calculate a (predicted) <code>globaloutput</code> value for a boolean model and for which we already have it’s attractors (stable states or minimal trapspaces), we find the <strong>values of the modeloutput nodes in each attractor</strong> (can be either <span class="math inline">\(1\)</span>, <span class="math inline">\(0\)</span> or a dash (<span class="math inline">\(-\)</span>): <em>active</em>, <em>inactive</em> or the node’s activity oscillates between the two) and calculate the following weighted average score across all attractors:</p>
+<p><span class="math display" id="eq:modeloutputs">\[\begin{equation}
+  gl_{pred} = \frac{\sum_{j=1}^{k}\sum_{i=1}^{n}ss_{ij} \times w_i}{k}
+  \tag{1}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(k\)</span> is the number of attractors of the model, <span class="math inline">\(n\)</span> is the number of nodes defined in the <code>modeloutputs</code> file, <span class="math inline">\(w_i\)</span> their respective weights and <span class="math inline">\(ss_{ij}\)</span> is the state of node <span class="math inline">\(i\)</span> in the <span class="math inline">\(j\)</span>-th attractor (can be one of <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span> or <span class="math inline">\(0.5\)</span> in case of a dash<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>).
+We always normalize the <code>globaloutput</code> to the <span class="math inline">\([0,1]\)</span> range by using the <span class="math inline">\(max(gl)=\sum_{w_i&gt;0}w_i\)</span> and <span class="math inline">\(min(gl)=\sum_{w_i&lt;0}w_i\)</span> values and calculating:</p>
+<p><span class="math display" id="eq:modeloutputsnorm">\[\begin{equation}
+  gl_{norm} = \frac{gl_{pred}-min(gl)}{max(gl)-min(gl)}
+  \tag{2}
+\end{equation}\]</span></p>
+<p>For example, for a boolean model that has <span class="math inline">\(k=1\)</span> attractor, Equation <a href="modeloutputs.html#eq:modeloutputs">(1)</a> becomes:</p>
+<p><span class="math display" id="eq:modeloutputs1ss">\[\begin{equation}
+  gl_{pred} = \sum_{i=1}^{n} ss_i \times w_i
+  \tag{3}
+\end{equation}\]</span></p>
+<p>So, if we have a boolean model whose modeloutput nodes are defined as in the <a href="modeloutputs.html#example-modeloutputs">example above</a> (a subset of the total model nodes) and which has <span class="math inline">\(1\)</span> trapspace where <code>RPS6KA1</code>=<span class="math inline">\(1\)</span>, <code>MYC</code>=<code>TCF7</code>=<span class="math inline">\(-\)</span> and <code>CASP8</code>=<code>CASP9</code>=<code>FOXO3</code>=<span class="math inline">\(0\)</span>, then using Equation <a href="modeloutputs.html#eq:modeloutputs1ss">(3)</a>:</p>
+<p><span class="math display">\[gl_{pred}=1\times1+0.5\times1+0.5\times1+0\times-1+0\times-1+0\times-1=2\]</span></p>
+<p>and since <span class="math inline">\(min(gl)=-3\)</span> and <span class="math inline">\(max(gl)=+3\)</span>, the <em>normalized</em> globaloutput value is <span class="math inline">\(gl_{norm}=\frac{2-(-3)}{3-(-3)}=0.833\)</span>.</p>
 </div>
-<div id="ref-Veliz-Cuba2014">
-<p>Veliz-Cuba, Alan, Boris Aguilar, Franziska Hinkelmann, and Reinhard Laubenbacher. 2014. “Steady state analysis of Boolean molecular network models via model reduction and computational algebra.” <em>BMC Bioinformatics</em> 15 (1): 221. <a href="https://doi.org/10.1186/1471-2105-15-221">https://doi.org/10.1186/1471-2105-15-221</a>.</p>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>And that’s a good approximation when we are talking about boolean models. It could be the case though, that a particular node which (in the trapspace result) has an activity defined by a dash (<span class="math inline">\(-\)</span>) oscillates between <span class="math inline">\(1000\)</span> states, out of which it’s active in <span class="math inline">\(900\)</span> of them and inactive in the rest. So a more correct value in that case would be a <span class="math inline">\(0.9\)</span><a href="modeloutputs.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
-<div id="ref-bookdown2016">
-<p>Xie, Yihui. 2016. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://github.com/rstudio/bookdown">https://github.com/rstudio/bookdown</a>.</p>
-</div>
-</div>
-</div>
-
-
-
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="drugpanel.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="training-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="gitsbeConfig.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -186,7 +202,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/bblodfon/druglogics-doc/edit/master/drabme.Rmd",
+"link": "https://github.com/bblodfon/druglogics-doc/edit/master/gitsbe.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -194,7 +210,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/bblodfon/druglogics-doc/blob/master/drabme.Rmd",
+"link": "https://github.com/bblodfon/druglogics-doc/blob/master/gitsbe.Rmd",
 "text": null
 },
 "download": null,

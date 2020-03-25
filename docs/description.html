@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>References | DrugLogics Software Documentation</title>
+  <title>Description | DrugLogics Software Documentation</title>
   <meta name="description" content="Description" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="References | DrugLogics Software Documentation" />
+  <meta property="og:title" content="Description | DrugLogics Software Documentation" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://bblodfon.github.io/druglogics-doc/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="bblodfon/druglogics-doc" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="References | DrugLogics Software Documentation" />
+  <meta name="twitter:title" content="Description | DrugLogics Software Documentation" />
   
   <meta name="twitter:description" content="Description" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="drugpanel.html"/>
-
+<link rel="prev" href="gitsbe.html"/>
+<link rel="next" href="installation-and-usage.html"/>
 <script src="libs/header-attrs-2.1/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -125,37 +125,34 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1 unnumbered" number="">
-<h1>References</h1>
-
-<div id="refs" class="references hanging-indent">
-<div id="ref-BLISS1939">
-<p>Bliss, C. I. 1939. “The Toxicity of Poisons Applied Jointly.” <em>Annals of Applied Biology</em> 26 (3): 585–615. <a href="https://doi.org/10.1111/j.1744-7348.1939.tb06990.x">https://doi.org/10.1111/j.1744-7348.1939.tb06990.x</a>.</p>
+<div id="description" class="section level2 unnumbered" number="">
+<h2>Description</h2>
+<p>The model interactions (taken from a network file, see <a href="installation-and-usage.html#inputs">inputs</a> section) are first assembled to logical boolean equations, based on a <strong>default equation</strong> relating a node with its regulators:</p>
+<div class="blue-box note">
+<p>Target *= (A or B or C) and not (D or E or F)</p>
 </div>
-<div id="ref-Naldi2018">
-<p>Naldi, Aurélien. 2018. “BioLQM: A Java Toolkit for the Manipulation and Conversion of Logical Qualitative Models of Biological Networks.” <em>Frontiers in Physiology</em> 9 (November): 1605. <a href="https://doi.org/10.3389/fphys.2018.01605">https://doi.org/10.3389/fphys.2018.01605</a>.</p>
+<p>where the <em>activating</em> regulators <code>A</code>, <code>B</code> and <code>C</code> and the <em>inhibitory</em> regulators <code>D</code>, <code>E</code> and <code>F</code> of a target node are combined with logical <code>or</code> operators between them and connected with the <code>and not</code> <em>link operator</em>.
+Thus, the state of the target node can be calculated using boolean algebra (0 means <em>inhibited</em>, 1 <em>active</em>).</p>
+<hr />
+<p>Gitsbe uses a <strong>genetic algorithm</strong> to generate and parameterize boolean models that fit to the <a href="training-data.html#training-data">training data</a> observations.
+First, an initial generation of models is formulated from the input model, where a large number of <strong>mutations</strong> to the parameterization is <a href="gitsbeConfig.html#genAlgoParams">introduced</a>: for example, randomly selected equations are mutated to use the <code>or not</code> link operator instead of the <code>and not</code>.
+Then for each model, a <em>fitness</em> score is computed as the weighted average over all fitness values for each observation that is specified in the <a href="training-data.html#training-data">training data</a> file.
+During this step, the calculation of the <a href="gitsbeConfig.html#attractor-tool">models attractors</a> takes place.
+The models that achieve the highest fitness scores will be <strong>selected</strong> for the next generation (see <a href="gitsbeConfig.html#genAlgoParams">respective configuration options</a>) and will be used during the <strong>crossover phase</strong> to exchange logical equations between them (also including themselves - enabling <em>asexual reproduction</em>!).
+This is how the models of the new generation are determined.
+After that, the <strong>mutation phase</strong> is repeated as described above, followed by the calculation of the attractors and the subsequent <strong>selection phase</strong>.</p>
+<p>After a non-negative total fitness score is obtained for the worst of the best models in the current generation, the number of mutations introduced per generation is reduced by a user-specified factor (see <a href="gitsbeConfig.html#genAlgoParams">options</a>).
+The whole <strong>evolution</strong> process is halted either when a user-specified fitness threshold is reached or when the (also user-defined) maximum number of generations had been spanned.
+The highest-fitness models of the last generation are stored in a <code>models</code> directory (see <a href="installation-and-usage.html#outputs">Outputs</a>).
+Different simulations of the <strong>evolution</strong> process can be run from the initial model (can be done in <em>parallel</em> utilizing all available cores), using a different seed per simulation and thus creating different parameterized output models in each case.</p>
 </div>
-<div id="ref-Veliz-Cuba2014">
-<p>Veliz-Cuba, Alan, Boris Aguilar, Franziska Hinkelmann, and Reinhard Laubenbacher. 2014. “Steady state analysis of Boolean molecular network models via model reduction and computational algebra.” <em>BMC Bioinformatics</em> 15 (1): 221. <a href="https://doi.org/10.1186/1471-2105-15-221">https://doi.org/10.1186/1471-2105-15-221</a>.</p>
-</div>
-<div id="ref-bookdown2016">
-<p>Xie, Yihui. 2016. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://github.com/rstudio/bookdown">https://github.com/rstudio/bookdown</a>.</p>
-</div>
-</div>
-</div>
-
-
-
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="drugpanel.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="gitsbe.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="installation-and-usage.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -186,7 +183,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/bblodfon/druglogics-doc/edit/master/drabme.Rmd",
+"link": "https://github.com/bblodfon/druglogics-doc/edit/master/gitsbe.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -194,7 +191,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/bblodfon/druglogics-doc/blob/master/drabme.Rmd",
+"link": "https://github.com/bblodfon/druglogics-doc/blob/master/gitsbe.Rmd",
 "text": null
 },
 "download": null,

@@ -1,7 +1,7 @@
 ---
 title: "DrugLogics Software Documentation"
 author: "John Zobolas"
-date: "Last updated: 07 February, 2020"
+date: "Last updated: 26 March, 2020"
 description: "Description"
 url: 'https\://bblodfon.github.io/druglogics-doc/'
 github-repo: "bblodfon/druglogics-doc"
@@ -14,7 +14,14 @@ site: bookdown::bookdown_site
 
 # Intro {-}
 
-This is an online documentation for any software package that is related to the [druglogics GitHub organisation](https://github.com/druglogics/). 
-If there is a need for extra information that is not in the `README.md` file of the respective package, it will be here most probably.
+This is an online documentation for some of the software packages in the [druglogics GitHub organisation](https://github.com/druglogics/). 
+It's created using the bookdown package [@bookdown2016].
+Currently the documentation includes the modules:
 
-Created using the bookdown package [@bookdown2016].
+- [Druglogics-Synergy]
+- [Gitsbe]
+- [Drabme]
+
+:::{.caution}
+The modules are currently in **private BitBucket repos** and will be publicly released in Github when the related publication gets accepted :)
+:::

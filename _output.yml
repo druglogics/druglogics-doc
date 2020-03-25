@@ -1,6 +1,6 @@
 bookdown::gitbook:
-  #dev: svglite # in case I need svg images
   split_bib: false
+  split_by: section
   toc_depth: 4
   css: style.css
   config:
@@ -10,9 +10,10 @@ bookdown::gitbook:
         <li><a href="./">Druglogics Software Documentation</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    download: no
     sharing:
       github: yes
       twitter: no
       facebook: no
       all: no
+    view: https://github.com/bblodfon/druglogics-doc/blob/master/%s
+    edit: https://github.com/bblodfon/druglogics-doc/edit/master/%s

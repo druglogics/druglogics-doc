@@ -7,23 +7,24 @@ This module defines boolean models compliant with observed behavior (e.g. steady
 gitsbe.version = "1.2.11"
 ```
 
-The code of the package is available in [Bitbucket](https://bitbucket.org/asmundf/gitsbe/src/master/).
+The code of the package is available in Bitbucket.
+
 This documentation is for the software version ``r gitsbe.version``
 
 ## Description {-}
 
 The model interactions (taken from a network file, see [inputs] section) are first assembled to logical boolean equations, based on a **default equation** relating a node with its regulators:
 
-<div class="blue-box">
-<b><i>Target *= (A or B or C) and not (D or E or F)</i></b>
-</div>
+:::{.blue-box .note}
+Target *= (A or B or C) and not (D or E or F)
+:::
 
 where the *activating* regulators `A`, `B` and `C` and the *inhibitory* regulators `D`, `E` and `F` of a target node are combined with logical `or` operators between them and connected with the `and not` *link operator*. 
 Thus, the state of the target node can be calculated using boolean algebra (0 means *inhibited*, 1 *active*).
 
 ----
 
-[Gitsbe] uses a **genetic algorithm** to generate and parameterize boolean models that fit to the [training data] observations.
+Gitsbe uses a **genetic algorithm** to generate and parameterize boolean models that fit to the [training data] observations.
 First, an initial generation of models is formulated from the input model, where a large number of **mutations** to the parameterization is [introduced](#genAlgoParams): for example, randomly selected equations are mutated to use the `or not` link operator instead of the `and not`.
 Then for each model, a *fitness* score is computed as the weighted average over all fitness values for each observation that is specified in the [training data] file. 
 During this step, the calculation of the [models attractors](#attractor-tool) takes place.
@@ -34,7 +35,7 @@ After that, the **mutation phase** is repeated as described above, followed by t
 After a non-negative total fitness score is obtained for the worst of the best models in the current generation, the number of mutations introduced per generation is reduced by a user-specified factor (see [options](#genAlgoParams)). 
 The whole **evolution** process is halted either when a user-specified fitness threshold is reached or when the (also user-defined) maximum number of generations had been spanned.
 The highest-fitness models of the last generation are stored in a `models` directory (see [Outputs]).
-Different simulations of the **evolution** process can be run from the initial model (even in *parallel* utilizing all available cores), using a different seed per simulation and thus creating different parameterized output models in each case.
+Different simulations of the **evolution** process can be run from the initial model (can be done in *parallel* utilizing all available cores), using a different seed per simulation and thus creating different parameterized output models in each case.
 
 ## Installation and Usage {-}
 
@@ -48,14 +49,14 @@ git clone https://bitbucket.org/asmundf/gitsbe.git
 mvn clean install
 ```
 
-<div class="orange-box">
+:::{.note}
 Note that [Gitsbe] calculates attractors for the boolean models it generates using either the [BNReduction tool](https://github.com/alanavc/BNReduction) [@Veliz-Cuba2014] or the [BioLQM](https://github.com/colomoto/bioLQM) Java library [@Naldi2018]. BioLQM is included by default in the code.
 The BNReduction tool has to be manually installed following the [respective documentation](https://bitbucket.org/asmundf/druglogics_dep/src/master/). 
-</div>
+:::
 
 ### Example {-}
 
-The recommended way to run [Gitsbe] is to use it's `Launcher`. 
+The recommended way to run Gitsbe is to use it's `Launcher`. 
 From the root directory of the repo run:
 ```
 cd example_run_ags
@@ -69,10 +70,10 @@ mvn compile -P runExampleAGS
 
 ### Inputs {-}
 
-Running the [Gitsbe] `Launcher` with no parameters, generates a **usage message** with the available options.
+Running the Gitsbe `Launcher` with no parameters, generates a **usage message** with the available options.
 The **required** parameters are:
 
-- `--network`: network file (in Cytoscape's `.sif` format, *tab*-delimited, with binary signed and directed interactions)
+- `--network`: a single-interactions network file (in Cytoscape's `.sif` format, *tab*-delimited, with binary signed and directed interactions)
 - `--trainingdata`: [training data file](#training-data)
 - `--modeloutputs`: [model outputs file](#modeloutputs)
 - `--config`: [configuration file](#gitsbeConfig)
@@ -80,7 +81,7 @@ The **required** parameters are:
 The **non-required** parameters are:
 
 - `--project`: the project name which is used as the name of the directory where the [outputs] will be stored.
-- `--drugs`: [drugpanel file](#drugpanel): this is required only when the [training data] observations include either drug perturbation or drug synergy conditions.
+- `--drugs`: [drugpanel file](#drugpanel): this is required only when the training data observations include either [single](#singleDrug) or [double](#doubleDrug) drug perturbation conditions.
 
 ### Outputs {-}
 
@@ -97,34 +98,34 @@ For each observation, a different *fitness* score is calculated.
 Every fitness score is between $0$ (no fitness at all) and $1$ (perfect fitness).
 The format of each observation is:
 
-<div class="blue-box">
-<b>Condition</b><br>
-\<data\><br>
-<b>Response</b><br>
-\<data\><br>
-<b>Weigth:</b>\<number\><br>
-</div>
+::: {.blue-box .fitcontent}
+**Condition**  
+\<data\>  
+**Response**  
+\<data\>  
+**Weight**:\<number\>
+:::
 
-The **weight** numbers (can be continuous values) are used after each individual observation *fitness* score has been calculated, to derive a total average weighted fitness score for the model which is *fitted* to the traning data.
+The **weight** numbers (can be continuous values) are used after each individual observation *fitness* score has been calculated, to derive a **total weighted average fitness score** for the model which is *fitted* to the training data.
 
-----
+We now present the currently **supported observations**:
 
-The currently supported observations are:
+### Unperturbed Condition - Steady State Response {-}
 
-1. Unperturbed Condition - Steady State Response
+Example:
 
-<div class="blue-box">
-<b>Condition</b><br>
--<br>
-<b>Response</b><br>
-A:0 B:1 C:0 D:0.453<br>
-<b>Weigth:</b>1<br>
-</div>
+::: {.blue-box .fitcontent}
+**Condition**  
+\-  
+**Response**  
+A:0 B:1 C:0 D:0.453  
+**Weight**:1  
+:::
 
 This is the most commonly used training option.
 Note that the response values are *tab-separated* and that the numbers assinged to each of the entities, define an activity value in the $[0,1]$ interval (continuous values are allowed).
 The entities have to be nodes from the [initial network](#inputs), otherwise they are ignored.
-Thus, a boolean model with it's attractors calculated, will have a fitness score for this kind of observation that describes the **closeness of it's attractors to the specified steady state response**.
+Thus, a boolean model with it's attractors calculated, gets a fitness score for this kind of observation that describes how **close it's attractors are to the specified steady state response**.
 
 For example, if a boolean model has only 1 trapspace attractor, on which the nodes {A,B,C,D} have values {0,1,-,-}, the fitness would be:
 $$fitness=\frac{\sum matches}{\#responses}=\frac{1+1+(1-abs[0-0.5])+(1-abs[0.453-0.5])}{4}=\frac{3.453}{4} \simeq 0.86$$
@@ -132,83 +133,153 @@ $$fitness=\frac{\sum matches}{\#responses}=\frac{1+1+(1-abs[0-0.5])+(1-abs[0.453
 If a model has multiple attractors, then first we find the average number of matches across all attractors and then divide by the number of responses.
 For example, if the previous model had one more attractor for which the nodes perfectly matched the observed responses (so $4$ in total matches) we would have an average value of matches across the two attractors equal to $(4+3.453)/2=3.7265$ and a *fitness* thus equal to $3.7265/4\simeq0.93$ (which makes sense since the second attractor matched better the observed state and thus **boosted** the fitness).
 
-2. Unperturbed Condition - `globaloutput` Response
+### Unperturbed Condition - `globaloutput` Response {-}
 
-<div class="blue-box">
-<b>Condition</b><br>
--<br>
-<b>Response</b><br>
-globaloutput:1<br>
-<b>Weigth:</b>1<br>
-</div>
+Example:
+
+::: {.blue-box .fitcontent}
+**Condition**  
+\-  
+**Response**  
+globaloutput:1  
+**Weight**:1  
+:::
 
 This training option pretty much translates to: **if I leave the system unperturbed, it continues proliferating** - a direct description of a cancer cell network system.
-So, with this type of observation we can train models to match a **growing cell/proliferation profile**!
-Note though that the observed `globaloutput` response can take any value in the $[0,1]$ interval (from a cell death state to a cell proliferation state so to speak).
+So, with this type of observation we can train models to match a **growing cell/proliferation profile**.
 
-In order to find the *fitness* of a boolean model to this kind of observation, we first calculate it's attractors, compute it's *predicted* `globaloutput` using Equation No. \@ref(eq:modeloutputs) (see [ModelOutputs]) and then calculate:
+Note that the **Response** must always be in the `globaloutput:<number>` format and that the absolute observed `globaloutput` response can take any value in the $[0,1]$ interval (from a cell death state to a cell proliferation state so to speak). 
+We mostly define it as an $1$ in this kind of observation.
+
+In order to find the *fitness* of a boolean model to this kind of observation, we first calculate it's attractors, compute it's *normalized predicted* `globaloutput` $gl_{pred}$ using Equation No. \@ref(eq:modeloutputsnorm) and then calculate:
 $$fitness=1-abs(gl_{obs}-gl_{pred})$$
 
-3. Simple/Multiple knockout/over-expression Condition - `globaloutput` Response
+where $gl_{obs}$ is the value defined in the **Response** (usually $1$ in this case).
 
-4. Single Drug perturbation Condition - `globaloutput` Response
+### Knockout/Overexpression Condition {-}
 
-5. Double Drug synergy Condition - relative `globaloutput` Response
+Example:
 
+::: {.blue-box .fitcontent}
+**Condition**  
+A:0 B:1  
+**Response**  
+globaloutput:0  
+**Weight**:0.1
+:::
 
-Drug(A+B) < min(Drug(A),Drug(B)) or Drug(A+B) < product(Drug(A),Drug(B))
+The above example translates to: *knockout* of A and *overexpression* of B entities (e.g. proteins/genes) combined, result in complete cell death (these observations are usually based on some experimental data).
+So with this kind of observation, we **train our model's output behaviour to best fit an experimental tested knockout or overexpression of one or many biological entities**.
 
+The **Response** must always be in the `globaloutput:<number>` format, with `<number>` a continuous value in the $[0,1]$ interval (ranging from cell death to a cell proliferation state).
 
-- If the condition is for a **specified perturbation**, then an expected 
-**global output value** is computed by integrating a weighted score across the 
-states of model output nodes. This is contrasted with the observed global output 
-response value in the training data (for that particular condition) to produce 
-the sub-fitness score. A fitness of 1 means that the expected and observed 
-global output scores are the same.
+The **Condition** must have *tab-separated* nodes with activity values (one or many).
+The activity values must be either $0$ or $1$, otherwise they are ignored.
+This is because we use logical modeling and substitute the equations of the boolean model as `A *= false` and `B *= true` respectively, before we calculate its attractors (both `A` and `B` must be in the [defined network model](#inputs)).
+After the attractors of the modified model are calculated, we compute it's *normalized predicted* `globaloutput` $gl_{pred}$ using Equation No. \@ref(eq:modeloutputsnorm) and then calculate:
+$$fitness=1-abs(gl_{obs}-gl_{pred})$$
 
+where $gl_{obs}$ is the value defined in the **Response** (usually $0$ in this case).
+
+### Single Drug Perturbation {-#singleDrug}
+
+Example:
+
+::: {.blue-box .fitcontent}
+**Condition**  
+Drug(PI)  
+**Response**  
+globaloutput:0  
+**Weight**:0.1
+:::
+
+With this observation we define **how a single drug perturbation affects our model's output state** (based on experimental data).
+
+The **Response** must always be in the `globaloutput:<number>` format, with `<number>` a continuous value in the $[0,1]$ interval (ranging from cell death to a cell proliferation state).
+
+The **Condition** must be in the `Drug(<DrugName>)` format, where the `<DrugName>` is one of the drugs defined in the [drug panel](#drugpanel).
+Thus we can find the drug's (defined) targets and perturb our model accordingly: if for example the `PI` drug *inhibits* entity `A` (the target) we change our model's respective equation to `A *= false`.
+Same logic if the drug had *activating* targets - the respective equations change to `Target *= true` (note that this is scarcely used since most drugs inhibit their targets).
+
+Once the model is modified and it's attractors calculated, we compute it's *normalized predicted* `globaloutput` $gl_{pred}$ using Equation No. \@ref(eq:modeloutputsnorm) and then calculate:
+$$fitness=1-abs(gl_{obs}-gl_{pred})$$
+
+where $gl_{obs}$ is the value defined in the **Response** (usually $0$ in this case).
+
+### Double Drug Perturbation {-#doubleDrug}
+
+Example:
+
+::: {.blue-box .fitcontent}
+**Condition**  
+Drug(A+B) < min(Drug(A),Drug(B))  
+**Response**  
+globaloutput:-0.2  
+**Weight**:1
+:::
+
+In this particular case, we can **train our model to best fit a synergistic observation between two drugs**.
+
+To derive that two drugs are synergistic, the experimental data are analyzed with various mathematical and computational models which compare the *actual observed response* with the *predicted (by the model) non-interaction* response. 
+If the measured response is lower than the expected non-interaction one, a synergy is defined and the *excess* - the relative `globaloutput` ($gl_{rel}$) between the actual response and the predicted non-interaction response - is used an input in the **Response** (format: `globaloutput:<number>`).
+
+A negative value for the relative globaloutput $gl_{rel}$/`<number>` defines a synergistic response while a positive value an antogonistic one (so we can also **train the model for antagonism** between the two drugs).
+Given that the *observed* and *non-interaction* responses are in the $[0,1]$ interval (ranging from cell death to a cell proliferation state), their difference (the relative `globaloutput`) must belong in the $[-1,1]$ interval (ranging from a highly synergistic to a highly antagonistic relationship between the 2 drugs).
+
+For the calculation of the model's *fitness* we can use either an *HSA* (Highest Single Agent) **Condition** (as in the example above) where the format would be `Drug(A+B) < min(Drug(A),Drug(B))` (`A` and `B` are drugs defined in the [drug panel](#drugpanel)) or a *Bliss* **Condition** [@BLISS1939], with the `Drug(A+B) < product(Drug(A),Drug(B))` format.
+In each case, we compute the attractors of 3 models: one perturbed with drug `A` alone, one perturbed with drug `B` alone and one perturbed with (the targets of) both drugs.
+Then, using the attractors of each model and Equation No. \@ref(eq:modeloutputsnorm), we compute each respective *normalized predicted* `globaloutput` as: $gl_A,gl_B,gl_{A+B}$.
+
+Then:
+
+- In the case of an *HSA* **Condition**, we compute the minimum globaloutput $gl_{min}=min(gl_A,gl_B)$ and then the *HSA* excess as: $excess=gl_{A+B}-gl_{min} \in [-1,1]$.
+- In the case of a *Bliss* **Condition**, we compute the globaloutput product $gl_{product}=gl_A\times gl_B$ and then the *Bliss* excess as: $excess=gl_{A+B}-gl_{product} \in [-1,1]$
+
+Next, in order to find how close that *excess* is to the one given in the training observation (the relative `globaloutput` $gl_{rel}$), we calculate their absolute difference and normalize it to get a value in the $[0,1]$ interval with which we can find the *fitness*:
+$$fitness=1-\frac{abs(excess-gl_{rel})}{2}$$
 
 ## Modeloutputs {-}
 
 The `modeloutputs` is an input file that is used by both [Gitsbe] and [Drabme]. 
 In the file, **network nodes with their respective integer weights** are defined, like in the example below: 
 
-<div class="blue-box">
-RPS6KA1 &emsp; 1<br>
-MYC &emsp; 1<br>
-TCF7 &emsp; 1<br>
-CASP8 &emsp; -1<br>
-CASP9 &emsp; -1<br>
-FOXO3 &emsp; -1<br>
-</div>
+::: {#example-modeloutputs .green-box .fitcontent}
+RPS6KA1 &emsp; 1  
+MYC &emsp; 1  
+TCF7 &emsp; 1  
+CASP8 &emsp; -1  
+CASP9 &emsp; -1  
+FOXO3 &emsp; -1  
+:::
 
 The nodes are *tab-separated* with the values and indicate the entities that directly influence the cell's global *signaling output* or *growth*: nodes that have a *negative* output value weight contribute to **cell death** through various means (e.g. `CASP8`) and nodes that have a *positive* value contribute to **cell proliferation** (e.g. `MYC`). 
 We allow only integer values for the node weights while their magnitude allows to distinct each node by how much do they influence cell death/proliferation: for example, a weight of $-2$ for the node `CASP8` would make it twice more important for cell death as a node who has a value of $-1$.
 
-So, for each [training data] observation where we need to calculate a `globaloutput` value for a boolean model and for which we already have it's attractors (stable states or minimal trapspaces), we find the **values of the modeloutput nodes in each attractor** (can be either $1$, $0$ or a dash ($-$): *active*, *inactive* or the node's activity oscillates between the two) and calculate the following average weighted score across all attractors:
+So, for each [training data observation](#training-data) where we need to calculate a (predicted) `globaloutput` value for a boolean model and for which we already have it's attractors (stable states or minimal trapspaces), we find the **values of the modeloutput nodes in each attractor** (can be either $1$, $0$ or a dash ($-$): *active*, *inactive* or the node's activity oscillates between the two) and calculate the following weighted average score across all attractors:
 
 \begin{equation}
-  gl_{model} = \frac{\sum_{j=1}^{k}\sum_{i=1}^{n}ss_{ij} \times w_i}{k}
+  gl_{pred} = \frac{\sum_{j=1}^{k}\sum_{i=1}^{n}ss_{ij} \times w_i}{k}
   (\#eq:modeloutputs)
 \end{equation}
 
-where $k$ is the number of attractors of the model, $n$ is the number of nodes defined in the `modeloutputs` file, $w_i$ their respective weights and $ss_{ij}$ is the state of node $i$ in the $j$-th attractor (can be one of $0$, $1$ or $0.5$ in case of a dash ^[And that's a good approximation when we are talking about boolean models. It could be though that this particular node that in the trapspace result has an activity defined by a dash ($-$) oscillates between $1000$ states, out of which it's active in $900$ of them and inactive in the rest. So a more correct value in that case would be a $0.9$]). 
+where $k$ is the number of attractors of the model, $n$ is the number of nodes defined in the `modeloutputs` file, $w_i$ their respective weights and $ss_{ij}$ is the state of node $i$ in the $j$-th attractor (can be one of $0$, $1$ or $0.5$ in case of a dash ^[And that's a good approximation when we are talking about boolean models. It could be the case though, that a particular node which (in the trapspace result) has an activity defined by a dash ($-$) oscillates between $1000$ states, out of which it's active in $900$ of them and inactive in the rest. So a more correct value in that case would be a $0.9$]). 
 We always normalize the `globaloutput` to the $[0,1]$ range by using the $max(gl)=\sum_{w_i>0}w_i$ and $min(gl)=\sum_{w_i<0}w_i$ values and calculating: 
 
 \begin{equation}
-  gl_{norm} = \frac{gl_{model}-min(gl)}{max(gl)-min(gl)}
+  gl_{norm} = \frac{gl_{pred}-min(gl)}{max(gl)-min(gl)}
   (\#eq:modeloutputsnorm)
 \end{equation}
 
 For example, for a boolean model that has $k=1$ attractor, Equation \@ref(eq:modeloutputs) becomes:
 
 \begin{equation}
-  gl_{model} = \sum_{i=1}^{n} ss_i \times w_i
+  gl_{pred} = \sum_{i=1}^{n} ss_i \times w_i
   (\#eq:modeloutputs1ss)
 \end{equation}
 
-So, if we have a boolean model whose modeloutput nodes are defined as in the [example above](#modeloutputs) (a subset of the total model nodes) and which has $1$ trapspace where `RPS6KA1`=$1$, `MYC`=`TCF7`=$-$ and `CASP8`=`CASP9`=`FOXO3`=$0$, then using Equation \@ref(eq:modeloutputs1ss):
+So, if we have a boolean model whose modeloutput nodes are defined as in the [example above](#example-modeloutputs) (a subset of the total model nodes) and which has $1$ trapspace where `RPS6KA1`=$1$, `MYC`=`TCF7`=$-$ and `CASP8`=`CASP9`=`FOXO3`=$0$, then using Equation \@ref(eq:modeloutputs1ss):
 
-$$gl_{model}=1\times1+0.5\times1+0.5\times1+0\times-1+0\times-1+0\times-1=2$$
+$$gl_{pred}=1\times1+0.5\times1+0.5\times1+0\times-1+0\times-1+0\times-1=2$$
 
 and since $min(gl)=-3$ and $max(gl)=+3$, the *normalized* globaloutput value is $gl_{norm}=\frac{2-(-3)}{3-(-3)}=0.833$.
 

@@ -17,7 +17,14 @@ knitr::write_bib(c(.packages(), 'bookdown'), 'packages.bib')
 
 # Intro {-}
 
-This is an online documentation for any software package that is related to the [druglogics GitHub organisation](https://github.com/druglogics/). 
-If there is a need for extra information that is not in the `README.md` file of the respective package, it will be here most probably.
+This is an online documentation for some of the software packages in the [druglogics GitHub organisation](https://github.com/druglogics/). 
+It's created using the bookdown package [@bookdown2016].
+Currently the documentation includes the modules:
 
-Created using the bookdown package [@bookdown2016].
+- [Druglogics-Synergy]
+- [Gitsbe]
+- [Drabme]
+
+:::{.caution}
+The modules are currently in **private BitBucket repos** and will be publicly released in Github when the related publication gets accepted :)
+:::

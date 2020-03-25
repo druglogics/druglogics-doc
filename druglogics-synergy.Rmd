@@ -1,3 +1,3 @@
 # Druglogics-synergy {-}
 
-This module runs sequentially the [Gitsbe] and the [drabme] modules.
+This module runs sequentially the [Gitsbe] and the [Drabme] modules.

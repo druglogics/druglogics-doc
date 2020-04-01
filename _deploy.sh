@@ -12,7 +12,7 @@ set -e
 git clone https://${GITHUB_PAT}@github.com/${TRAVIS_REPO_SLUG}.git repo
 cd repo
 bash _build.sh
-git add docs/*
+git add --force docs/*
 git commit -m "update docs" || true
 git push
 

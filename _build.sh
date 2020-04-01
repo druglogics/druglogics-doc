@@ -1,6 +1,4 @@
 #!/bin/bash
 
-set -ev
-
 Rscript -e "bookdown::render_book(input = 'index.Rmd', output_format = 'bookdown::gitbook')"
-#Rscript -e "utils::browseURL(url = 'docs/index.html')"
+Rscript -e "utils::browseURL(url = 'docs/index.html')"

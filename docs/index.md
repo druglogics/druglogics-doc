@@ -1,7 +1,7 @@
 ---
 title: "DrugLogics Software Documentation"
 author: "John Zobolas"
-date: "Last updated: 30 March, 2020"
+date: "Last updated: 01 April, 2020"
 description: "Description"
 url: 'https\://bblodfon.github.io/druglogics-doc/'
 github-repo: "bblodfon/druglogics-doc"

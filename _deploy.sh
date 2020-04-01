@@ -5,14 +5,18 @@ set -e
 [ -z "${GITHUB_PAT}" ] && exit 0
 [ "${TRAVIS_BRANCH}" != "master" ] && exit 0
 
-#git config --global user.email "bblodfon@gmail.com"
-#git config --global user.name "john"
+git config --global user.email "bblodfon@gmail.com"
+git config --global user.name "john"
 
-# TRAVIS_REPO_SLUG = owner_name/repo_name
-git clone https://${GITHUB_PAT}@github.com/${TRAVIS_REPO_SLUG}.git repo
+# Build the book on master (docs/ has been updated)
+Rscript -e "bookdown::render_book(input = 'index.Rmd', output_format = 'bookdown::gitbook')"
+
+# Clone gh-pages branch
+git clone -b gh-pages https://${GITHUB_PAT}@github.com/${TRAVIS_REPO_SLUG}.git repo
 cd repo
-bash _build.sh
-git add --force docs/*
+git rm -rf *
+cp -r ../docs/* ./
+git add --force -all *
 git commit -m "update docs" || true
-git push
+git push -q origin gh-pages
 

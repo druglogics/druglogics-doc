@@ -16,7 +16,7 @@ git clone -b gh-pages https://${GITHUB_PAT}@github.com/${TRAVIS_REPO_SLUG}.git r
 cd repo
 git rm -rf *
 cp -r ../docs/* ./
-git add --force -all *
-git commit -m "update docs" || true
+git add --all *
+git commit -m "update book" || true
 git push -q origin gh-pages
 

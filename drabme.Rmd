@@ -36,5 +36,3 @@ We only include here the configuration options that can be used by Drabme alone:
   B&emsp;C  
   A&emsp;B&emsp;C  
   :::
-
-# References {-}

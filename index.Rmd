@@ -2,7 +2,7 @@
 title: "DrugLogics Software Documentation"
 author: "John Zobolas"
 date: "Last updated: `r format(Sys.time(), '%d %B, %Y')`"
-description: "Description"
+description: "DrugLogics Software Documentation"
 url: 'https\://bblodfon.github.io/druglogics-doc/'
 github-repo: "bblodfon/druglogics-doc"
 bibliography: ["references.bib", "packages.bib"]

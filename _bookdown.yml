@@ -1,5 +1,5 @@
 book_filename: "druglogics_doc"
 output_dir: "docs"
-rmd_files: ["index.Rmd", "gitsbe.Rmd", "drabme.Rmd"]
+rmd_files: ["index.Rmd", "gitsbe.Rmd", "drabme.Rmd", "ref.Rmd"]
 new_session: true
 delete_merged_file: true

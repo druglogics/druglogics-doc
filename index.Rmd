@@ -10,12 +10,16 @@ link-citations: true
 site: bookdown::bookdown_site
 ---
 
-```{r include = FALSE}
+```{r stuff, include = FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(.packages(), 'bookdown'), 'packages.bib')
+
+# Package versions
+gitsbe_version = "1.2.11"
+drabme_version = "1.1.5"
 ```
 
-# Intro {-}
+# Introduction {-}
 
 This is an online documentation for some of the software packages in the [druglogics GitHub organisation](https://github.com/druglogics/).
 It's created using the bookdown package [@bookdown2016].
@@ -24,8 +28,6 @@ Currently the documentation includes the packages:
 - [Gitsbe]
 - [Drabme]
 
-This project was born because the above packages have a lot of configuration options that we needed to clarify and properly document and in the end they are the heart of the DrugLogics pipeline.
-
 :::{.caution}
-The packages are currently in **private BitBucket repos** and will be publicly released in Github when the related publication gets accepted :)
+The packages are currently in **private BitBucket repositories** and will be publicly released in Github when the relevant publication gets accepted :)
 :::

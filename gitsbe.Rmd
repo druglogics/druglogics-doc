@@ -79,7 +79,7 @@ The **required** parameters are:
 The **non-required** parameters are:
 
 - `--project`: the project name which is used as the name of the directory where the [outputs](#gitsbe-output) will be stored.
-- `--drugs`: [drugpanel file](#drugpanel): this is required only when the training data observations include either [single](#single-drug) or [double](#double-drug) drug perturbation conditions.
+- `--drugs`: [drug panel file](#drug-panel): this is required only when the training data observations include either [single](#single-drug) or [double](#double-drug) drug perturbation conditions.
 
 ### Outputs {-#gitsbe-output}
 

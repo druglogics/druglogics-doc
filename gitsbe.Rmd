@@ -47,9 +47,9 @@ mvn clean install
 ```
 
 :::{.note}
-Note that [Gitsbe] calculates attractors for the boolean models it generates using either the [BNReduction tool](https://github.com/alanavc/BNReduction) [@Veliz-Cuba2014] or the [BioLQM](https://github.com/colomoto/bioLQM) Java library [@Naldi2018]. 
+Note that [Gitsbe] calculates attractors for the boolean models it generates using either the [BNReduction tool](https://github.com/alanavc/BNReduction) [@Veliz-Cuba2014], the [BioLQM](https://github.com/colomoto/bioLQM) Java library [@Naldi2018] or [the Most Permissive Boolean Networks](https://github.com/pauleve/mpbn) framework [@Pauleve2020].
 BioLQM is included by default in the code.
-The BNReduction tool has to be manually installed following the [respective documentation](https://bitbucket.org/asmundf/druglogics_dep/src/master/).
+The BNReduction and MPBN scripts have to be manually installed following the [respective documentation](https://bitbucket.org/asmundf/druglogics_dep/src/master/).
 :::
 
 ### Example {-#gitsbe-example}
@@ -83,7 +83,7 @@ The **non-required** parameters are:
 
 ### Outputs {-#gitsbe-output}
 
-The expected generated outputs of the `Launcher` are:
+The expected generated outputs of Gitsbe's `Launcher` are:
 
 - A `models` directory with files in `.gitsbe` format (or [other formats](#export) as well if properly specified), which represent the boolean models that best fitted to the configuration and training data that the simulation of the genetic algorithm was based on.
 - A **summary file** that includes the models' fitness evolution throughout the genetic algorithm's generations.
@@ -294,7 +294,9 @@ and since $min(gl)=-3$ and $max(gl)=+3$, the *normalized* globaloutput value is 
 
 The configuration file includes options that are common between [Gitsbe] and [Drabme] (see [General] and [Attractor Tool] options), those that are Gitsbe-specific (see [Export] and [Genetic Algorithm] options) and those that are [Drabme-specific](#drabme-config).
 
+:::{.note}
 The format of each configuration option in the file must be: `<parameter>:  <value>` (*tab-separated*)
+:::
 
 ### General {-}
 
@@ -327,18 +329,19 @@ The format of each configuration option in the file must be: `<parameter>:  <val
 
 - `attractor_tool`: tool to use for the calculation of attractors.
 
-  Allowed values: `bnet_reduction`, `bnet_reduction_reduced`, `biolqm_stable_states`, `biolqm_trapspaces`.
+  Allowed values: `bnet_reduction`, `bnet_reduction_reduced`, `biolqm_stable_states`, `biolqm_trapspaces`, `mpbn_trapspaces`.
 
-  The first two options use the [BNReduction tool](https://github.com/alanavc/BNReduction) [@Veliz-Cuba2014] and the next two the [BioLQM](https://github.com/colomoto/bioLQM) Java library [@Naldi2018].
-  Follow the [respective documentation](https://bitbucket.org/asmundf/druglogics_dep/src/master/) to install and enable the two BNReduction-based versions (BioLQM is included by default).
+  The first two options use the [BNReduction tool](https://github.com/alanavc/BNReduction) [@Veliz-Cuba2014], next two the [BioLQM](https://github.com/colomoto/bioLQM) Java library [@Naldi2018] and the last one the [Most Permissive Boolean Networks](https://github.com/pauleve/mpbn) framework [@Pauleve2020].
+  Follow the [respective documentation](https://bitbucket.org/asmundf/druglogics_dep/src/master/) to install and enable the two BNReduction-based versions and the MPBN `Python` script (BioLQM is included by default).
 
   The `bnet_reduction` and `biolqm_stable_states` options calculate **all the fixpoints** of the boolean models.
   The `bnet_reduction_reduced` works only if the model has **one fixpoint attractor** (or none). 
 Note though that there can be models that have one fixpoint and the *reduced* BNReduction version is not able to find it.
   It's advantage rests on the simple fact that **it's much faster for larger networks** and when self-contained network models are used, it gets most of the results correctly (self-contained models usually don't have many fixpoints).
   
-  The `biolqm_trapspaces` option calculates the *terminal* trapspaces (see respective [BioLQM documentation](http://colomoto.org/biolqm/doc/tools-trapspace.html)).
+  The `biolqm_trapspaces` and `mpbn_trapspaces` options calculate the *terminal* trapspaces (see respective [BioLQM documentation](http://colomoto.org/biolqm/doc/tools-trapspace.html) and [MPBN documentation](https://mpbn.readthedocs.io/)).
   These kind of trapspaces are also called *minimal* [@Klarner2015].
+  The `mpbn_trapspaces` option **is a lot faster in general**, but for smaller networks ($<100$ nodes) it's best to use BioLQM's implementation since there is an I/O call overhead when using the MPBN Python script.
 
 ### Export {-}
 

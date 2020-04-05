@@ -28,6 +28,11 @@ Currently the documentation includes the packages:
 - [Gitsbe]
 - [Drabme]
 
+---
+
+We have implemented a small package called `druglogics-synergy` which runs sequentially Gitsbe and then Drabme, to make it easier for users to execute/test the two pipeline packages in one go.
+See documentation in the respective [BitBucket repository](https://bitbucket.org/asmundf/druglogics-synergy/src/master/).
+
 :::{.caution}
 The packages are currently in **private BitBucket repositories** and will be publicly released in Github when the relevant publication gets accepted :)
 :::

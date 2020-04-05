@@ -15,5 +15,5 @@ bookdown::gitbook:
       twitter: no
       facebook: no
       all: no
-    view: https://github.com/bblodfon/druglogics-doc/blob/master/%s
-    edit: https://github.com/bblodfon/druglogics-doc/edit/master/%s
+    view: https://github.com/druglogics/druglogics-doc/blob/master/%s
+    edit: https://github.com/druglogics/druglogics-doc/edit/master/%s

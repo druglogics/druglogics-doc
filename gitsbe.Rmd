@@ -258,7 +258,7 @@ FOXO3 &emsp; -1
 The nodes are *tab-separated* with the values and indicate the entities that directly influence the cell's global *signaling output* or *growth*: nodes that have a *negative* output value weight contribute to **cell death** through various means (e.g. `CASP8`) and nodes that have a *positive* value contribute to **cell proliferation** (e.g. `MYC`).
 We allow only integer values for the node weights while their magnitude allows to distinct each node by how much do they influence cell death/proliferation: for example, a weight of $-2$ for the node `CASP8` would make it twice more important for cell death as a node who has a value of $-1$.
 
-So, whenever we need to calculate a (predicted) signaling output or *growth* value for a boolean model (e.g. for most of the [training data observations](#training-data)) and for which we already have it's attractors (stable states or terminal trapspaces), we find the **values of the modeloutput nodes in each attractor** (can be either $1$, $0$ or a dash ($-$): *active*, *inactive* or the node's activity oscillates between the two) and calculate the following weighted average score across all attractors:
+So, whenever we need to calculate a (predicted) **signaling output or growth value** for a boolean model (e.g. for most of the [training data observations](#training-data)) and for which we already have it's attractors (stable states or terminal trapspaces), we find the **values of the modeloutput nodes in each attractor** (can be either $1$, $0$ or a dash ($-$): *active*, *inactive* or the node's activity oscillates between the two) and calculate the following weighted average score across all attractors:
 
 \begin{equation}
   gl_{pred} = \frac{\sum_{j=1}^{k}\sum_{i=1}^{n}ss_{ij} \times w_i}{k}
@@ -273,8 +273,8 @@ We always normalize the `globaloutput` to the $[0,1]$ range by using the $max(gl
   (\#eq:modeloutputs-norm)
 \end{equation}
 
-::: {.tip}
-A `globaloutput = 0` refers to a model with **zero cell growth** (cell death state) while a `globaloutput = 1` refers to a model with **maximum growth** (proliferation state).
+::: {#modeloutputs-tip .tip}
+A `globaloutput = 0` refers to a model with **zero cell growth or viability** (cell death state) while a `globaloutput = 1` refers to a model with **maximum growth** (proliferation state).
 :::
 
 For example, for a boolean model that has $k=1$ attractor, Equation \@ref(eq:modeloutputs) becomes:

@@ -2,11 +2,11 @@
 
 [emba] is an acronym for *Ensemble (boolean) Model Biomarker Analysis*.
 
-It's an `R` package made to analyze the models produced by [Gitsbe](#gitsbe-output) with regards to their predictive performance and synergy prediction output and find important nodes (biomarkers) in the studied boolean networks that make these models predict specific (experimentally observed) synergies or produce better overall prediction performance.
+It's an `R` package made to analyze the [models produced by Gitsbe](#gitsbe-output) with regards to their predictive performance and synergy prediction output and find important nodes (biomarkers) in the studied boolean networks that make these models predict specific (experimentally observed) synergies or produce better overall prediction performance.
 
 Check the following links for more info:
 
 - [Code repository in GitHub](https://github.com/bblodfon/emba)
 - [CRAN package](https://cran.r-project.org/web/packages/emba/index.html)
 - [Reference Manual](https://cran.r-project.org/web/packages/emba/emba.pdf)
-- [Example analysis](https://bblodfon.github.io/gitsbe-model-analysis/atopo/cell-lines-2500/) whose results are based on the usage of the `emba` package
+- [Example analysis](https://bblodfon.github.io/gitsbe-model-analysis/atopo/cell-lines-2500/) whose results are based on the usage of this package

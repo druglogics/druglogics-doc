@@ -11,7 +11,7 @@ site: bookdown::bookdown_site
 ---
 
 ```{r stuff, include = FALSE}
-# automatically create a bib database for R packages
+# automatically create a bib database for R packages 
 knitr::write_bib(c(.packages(), 'bookdown'), 'packages.bib')
 
 # Package versions

@@ -27,6 +27,7 @@ Currently the documentation includes the packages:
 
 - [Gitsbe]
 - [Drabme]
+- [emba]
 
 ---
 

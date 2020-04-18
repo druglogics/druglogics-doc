@@ -25,13 +25,13 @@ Thus, they fit perfectly with the simulation data Drabme produces - i.e. the per
 
 In order for these mathematical models to classify two drugs as synergistic (or not), they define an expected *additive* response that the combination should have if the two drugs *are not interacting* with each other (they are neither synergistic or antagonistic - their effects are simply *added*).
 **If the (predicted or observed) combined response is lower ^[Again, *higher* if we are talking about *effects*] than the additive one for a particular tested model/system, a synergy is called** (if higher, then an antagonism).
-The *HSA* model for example (which [Drabme] uses), defines the additive response as the minimum of the two single-drug perturbed model responses ^[On the other hand, *Bliss Independence* defines as the additive response the *product* of the two single-drug perturbed model responses. So it's a more strict model for synergies].
+The *HSA* model for example, defines the additive response as the minimum of the two single-drug perturbed model responses ^[On the other hand, *Bliss Independence* defines as the additive response the *product* of the two single-drug perturbed model responses. So it's a more strict model for synergies].
 So, when the output response of the two-drug perturbed model is lower than the minimum of the two single-drug perturbed models, the two-drug combination acts synergistically upon that particular model.
 
-The assessment of synergies in [Drabme] is done in two ways: **model-wise** and **ensemble-wise**.
-In the **model-wise** approach, for each drug combination, we find and compare the number of models that predicted it as synergistic vs the number of models that predicted it as antagonistic (using the *HSA* model as described in the previous paragraph).
-In the **ensemble-wise** approach, for each drug combination, we find the two average single-drug responses as well as the average response for the drug combination (from the collection of models at our disposal ^[Actually, from all the models that had attractors for the specified perturbations (single or double)]) and use the *HSA* model on these ensemble-wise values.
-The *HSA-exceed* value - i.e. how much lower was the average combination response value from the minimum of the two average responses of the single-drug perturbed models (per drug combination tested) - is one the [main outputs of Drabme](#drabme-output).
+The assessment of synergies in [Drabme] is done in two ways: **model-wise** and **ensemble-wise** (using *HSA* or *Bliss*, see [configuration options](#drabme-config)).
+In the **model-wise** approach, for each drug combination, we find and compare the number of models that predicted it as synergistic vs the number of models that predicted it as antagonistic (using for example the *HSA* method as described in the previous paragraph).
+In the **ensemble-wise** approach, for each drug combination, we find the two average single-drug responses as well as the average response for the drug combination (from the collection of models at our disposal ^[Actually, from all the models that had attractors for the specified perturbations (single or double)]) and use the *HSA* (*Bliss*) model on these ensemble-wise values.
+The *HSA-exceed* (*Bliss-exceed*) value - i.e. how much lower was the average combination response value from the minimum of the two average responses of the single-drug perturbed models or from their product in the case of *Bliss* (per drug combination tested) - is one the [main outputs of Drabme](#drabme-output).
 The more negative that value is, the more synergistic the drug combination is *ensemble-wise* and vise-versa (the more positive, the more antagonistic).
 
 ## Installation and Usage {-#drabme-install}
@@ -167,3 +167,9 @@ We only include here the configuration options that can be used by Drabme alone:
   B&emsp;C  
   A&emsp;B&emsp;C  
   :::
+
+- `synergy_method`. Possible values: `hsa` or `bliss`.
+  
+  This option indicates which method we should use for the calculation of synergies both model-wise and ensemble-wise.
+  Using `bliss`, less synergies are predicted in general.
+  For more info, see [Description](#drabme-description).

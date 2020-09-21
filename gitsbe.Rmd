@@ -224,7 +224,7 @@ globaloutput:-0.2
 In this particular case, we can **train our model to best fit a synergistic observation between two drugs**.
 
 To derive that two drugs are synergistic, the experimental data are analyzed with various mathematical and computational models which compare the *actual observed response* with the *predicted (by the model) non-interaction* response.
-If the measured response is lower than the expected non-interaction one, a synergy is defined and the *excess* - the relative `globaloutput` ($gl_{rel}$) between the actual response and the predicted non-interaction response - is used an input in the **Response** (format: `globaloutput:<number>`).
+If the measured response is lower than the expected non-interaction one, a synergy is defined and the *excess* - the relative `globaloutput` ($gl_{rel}$) between the actual response and the predicted non-interaction response - is used as input in the **Response** (format: `globaloutput:<number>`).
 
 A negative value for the relative globaloutput $gl_{rel}$/`<number>` defines a synergistic response while a positive value an antogonistic one (so we can also **train the model for antagonism** between the two drugs).
 Given that the *observed* and *non-interaction* responses are in the $[0,1]$ interval (ranging from cell death to a cell proliferation state), their difference (the relative `globaloutput`) must belong in the $[-1,1]$ interval (ranging from a highly synergistic to a highly antagonistic relationship between the 2 drugs).

@@ -25,8 +25,8 @@ This is an online documentation for some of the software packages in the [druglo
 It's created using the bookdown package [@bookdown2016].
 The following packages are fully documented in this manual:
 
-- [Gitsbe]
-- [Drabme]
+- [Gitsbe](#gitsbe)
+- [Drabme](#drabme)
 
 Other DrugLogics-related packages (documented in their respective repositories) are:
 
@@ -36,7 +36,7 @@ A small package which runs sequentially Gitsbe and then Drabme, to make it easie
 R shiny app that was built to use the results from Drabme's [ensemble-wise synergies output file](#drabme-output) and produce a ROC (Receiver Operator Characteristic) and a PR (Precision-Recall) curve in order to assess the performance of Drabme's synergy classifier/predictor.
 - [abmlog](https://github.com/druglogics/abmlog)  
 A generator of all possible boolean models with link operators.
-- [emba]
+- [emba](#emba)
 
 :::{.caution}
 The Java-based packages are currently in **private BitBucket repositories** and will be publicly released in Github when the relevant publication gets accepted :)

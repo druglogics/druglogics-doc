@@ -1,4 +1,4 @@
-# Gitsbe {-}
+# Gitsbe {-#gitsbe}
 
 [Gitsbe] is an acronym for *Genetic Interactions To Specific Boolean Equations*.
 This module defines boolean models compliant with observed behavior (e.g. steady state or perturbation data) using an automated, model parameterization genetic algorithm.
@@ -47,7 +47,7 @@ mvn clean install
 ```
 
 :::{.note}
-Note that [Gitsbe] calculates attractors for the boolean models it generates using either the [BNReduction tool](https://github.com/alanavc/BNReduction) [@Veliz-Cuba2014], the [BioLQM](https://github.com/colomoto/bioLQM) Java library [@Naldi2018] or [the Most Permissive Boolean Networks](https://github.com/pauleve/mpbn) framework [@Pauleve2020].
+Note that [Gitsbe](#gitsbe) calculates attractors for the boolean models it generates using either the [BNReduction tool](https://github.com/alanavc/BNReduction) [@Veliz-Cuba2014], the [BioLQM](https://github.com/colomoto/bioLQM) Java library [@Naldi2018] or [the Most Permissive Boolean Networks](https://github.com/pauleve/mpbn) framework [@Pauleve2020].
 BioLQM is included by default in the code.
 The BNReduction and MPBN scripts have to be manually installed following the [respective documentation](https://bitbucket.org/asmundf/druglogics_dep/src/master/).
 :::
@@ -243,7 +243,7 @@ $$fitness=1-\frac{abs(excess-gl_{rel})}{2}$$
 
 ## Modeloutputs {-}
 
-The `modeloutputs` is an input file that is used by both [Gitsbe] and [Drabme] to calculate a `globaloutput` response from a boolean model.
+The `modeloutputs` is an input file that is used by both [Gitsbe](#gitsbe) and [Drabme](#drabme) to calculate a `globaloutput` response from a boolean model.
 In the `modeloutputs` file, **network nodes with their respective integer weights** are defined, like in the example below:
 
 ::: {#example-modeloutputs .green-box .fitcontent}
@@ -292,7 +292,7 @@ and since $min(gl)=-3$ and $max(gl)=+3$, the *normalized* globaloutput value is 
 
 ## Configuration {-#gitsbe-config}
 
-The configuration file includes options that are common between [Gitsbe] and [Drabme] (see [General] and [Attractor Tool] options), those that are Gitsbe-specific (see [Export] and [Genetic Algorithm] options) and those that are [Drabme-specific](#drabme-config).
+The configuration file includes options that are common between [Gitsbe](#gitsbe) and [Drabme](#drabme) (see [General] and [Attractor Tool] options), those that are Gitsbe-specific (see [Export] and [Genetic Algorithm] options) and those that are [Drabme-specific](#drabme-config).
 
 :::{.note}
 The format of each configuration option in the file must be: `<parameter>:  <value>` (*tab-separated*)

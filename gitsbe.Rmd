@@ -178,7 +178,7 @@ The **Response** must always be in the `globaloutput:<number>` format, with `<nu
 
 The **Condition** must have *tab-separated* nodes with activity values (one or many).
 The activity values must be either $0$ or $1$, otherwise they are ignored.
-This is because we use logical modeling and substitute the equations of the boolean model as `A *= false` and `B *= true` respectively, before we calculate its attractors (both `A` and `B` must be in the [defined network model](#inputs)).
+This is because we use logical modeling and substitute the equations of the boolean model as `A *= false` and `B *= true` respectively, before we calculate its attractors (both `A` and `B` must be in the [defined network model](#gitsbe-input)).
 After the attractors of the modified model are calculated, we compute it's *normalized predicted* `globaloutput` $gl_{pred}$ using Equation No. \@ref(eq:modeloutputs-norm) and then calculate:
 $$fitness=1-abs(gl_{obs}-gl_{pred})$$
 

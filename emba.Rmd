@@ -6,6 +6,7 @@ It's an `R` package made to analyze the [models produced by Gitsbe](#gitsbe-outp
 
 Check the following links for more info:
 
+- JOSS Publication: [![DOI](https://joss.theoj.org/papers/10.21105/joss.02583/status.svg)](https://doi.org/10.21105/joss.02583)
 - [Code repository in GitHub](https://github.com/bblodfon/emba)
 - [Package Website](https://bblodfon.github.io/emba/)
 - [CRAN package](https://cran.r-project.org/web/packages/emba/index.html)

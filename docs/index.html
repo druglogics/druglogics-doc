@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>DrugLogics Software Documentation</title>
+  <meta name="description" content="DrugLogics Software Documentation" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="DrugLogics Software Documentation" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://druglogics.github.io/druglogics-doc/" />
+  
+  <meta property="og:description" content="DrugLogics Software Documentation" />
+  <meta name="github-repo" content="druglogics/druglogics-doc" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="DrugLogics Software Documentation" />
+  
+  <meta name="twitter:description" content="DrugLogics Software Documentation" />
+  
+
+<meta name="author" content="John Zobolas" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="gitsbe.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Contents</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="gitsbe.html"><a href="gitsbe.html"><i class="fa fa-check"></i>Gitsbe</a>
+<ul>
+<li class="chapter" data-level="" data-path="gitsbe-description.html"><a href="gitsbe-description.html"><i class="fa fa-check"></i>Description</a></li>
+<li class="chapter" data-level="" data-path="gitsbe-install.html"><a href="gitsbe-install.html"><i class="fa fa-check"></i>Installation and Usage</a>
+<ul>
+<li class="chapter" data-level="" data-path="gitsbe-install.html"><a href="gitsbe-install.html#install"><i class="fa fa-check"></i>Install</a></li>
+<li class="chapter" data-level="" data-path="gitsbe-install.html"><a href="gitsbe-install.html#gitsbe-example"><i class="fa fa-check"></i>Example</a></li>
+<li class="chapter" data-level="" data-path="gitsbe-install.html"><a href="gitsbe-install.html#gitsbe-input"><i class="fa fa-check"></i>Inputs</a></li>
+<li class="chapter" data-level="" data-path="gitsbe-install.html"><a href="gitsbe-install.html#gitsbe-output"><i class="fa fa-check"></i>Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="training-data.html"><a href="training-data.html"><i class="fa fa-check"></i>Training Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="training-data.html"><a href="training-data.html#unperturbed-condition---steady-state-response"><i class="fa fa-check"></i>Unperturbed Condition - Steady State Response</a></li>
+<li><a href="training-data.html#unperturbed-condition---globaloutput-response">Unperturbed Condition - <code>globaloutput</code> Response</a></li>
+<li class="chapter" data-level="" data-path="training-data.html"><a href="training-data.html#knockoutoverexpression-condition"><i class="fa fa-check"></i>Knockout/Overexpression Condition</a></li>
+<li class="chapter" data-level="" data-path="training-data.html"><a href="training-data.html#single-drug"><i class="fa fa-check"></i>Single Drug Perturbation</a></li>
+<li class="chapter" data-level="" data-path="training-data.html"><a href="training-data.html#double-drug"><i class="fa fa-check"></i>Double Drug Perturbation</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="modeloutputs.html"><a href="modeloutputs.html"><i class="fa fa-check"></i>Modeloutputs</a></li>
+<li class="chapter" data-level="" data-path="gitsbe-config.html"><a href="gitsbe-config.html"><i class="fa fa-check"></i>Configuration</a>
+<ul>
+<li class="chapter" data-level="" data-path="gitsbe-config.html"><a href="gitsbe-config.html#general"><i class="fa fa-check"></i>General</a></li>
+<li class="chapter" data-level="" data-path="gitsbe-config.html"><a href="gitsbe-config.html#attractor-tool"><i class="fa fa-check"></i>Attractor Tool</a></li>
+<li class="chapter" data-level="" data-path="gitsbe-config.html"><a href="gitsbe-config.html#export"><i class="fa fa-check"></i>Export</a></li>
+<li class="chapter" data-level="" data-path="gitsbe-config.html"><a href="gitsbe-config.html#genetic-algorithm"><i class="fa fa-check"></i>Genetic Algorithm</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="drabme.html"><a href="drabme.html"><i class="fa fa-check"></i>Drabme</a>
+<ul>
+<li class="chapter" data-level="" data-path="drabme-description.html"><a href="drabme-description.html"><i class="fa fa-check"></i>Description</a></li>
+<li class="chapter" data-level="" data-path="drabme-install.html"><a href="drabme-install.html"><i class="fa fa-check"></i>Installation and Usage</a>
+<ul>
+<li class="chapter" data-level="" data-path="drabme-install.html"><a href="drabme-install.html#install-1"><i class="fa fa-check"></i>Install</a></li>
+<li class="chapter" data-level="" data-path="drabme-install.html"><a href="drabme-install.html#drabme-example"><i class="fa fa-check"></i>Example</a></li>
+<li class="chapter" data-level="" data-path="drabme-install.html"><a href="drabme-install.html#drabme-input"><i class="fa fa-check"></i>Inputs</a></li>
+<li class="chapter" data-level="" data-path="drabme-install.html"><a href="drabme-install.html#drabme-output"><i class="fa fa-check"></i>Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="drug-panel.html"><a href="drug-panel.html"><i class="fa fa-check"></i>Drug Panel</a></li>
+<li class="chapter" data-level="" data-path="perturbations.html"><a href="perturbations.html"><i class="fa fa-check"></i>Perturbations</a></li>
+<li class="chapter" data-level="" data-path="drabme-config.html"><a href="drabme-config.html"><i class="fa fa-check"></i>Configuration</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="emba.html"><a href="emba.html"><i class="fa fa-check"></i>emba</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">DrugLogics Software Documentation</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">DrugLogics Software Documentation</h1>
+<p class="author"><em>John Zobolas</em></p>
+<p class="date"><em>Last updated: 16 December, 2020</em></p>
+</div>
+<div id="introduction" class="section level1 unnumbered" number="">
+<h1>Introduction</h1>
+<p>This is an online documentation for some of the software packages in the <a href="https://github.com/druglogics/">druglogics GitHub organisation</a>.
+It’s created using the bookdown package <span class="citation">(Xie <a href="references.html#ref-bookdown2016" role="doc-biblioref">2016</a>)</span>.
+The following packages are fully documented in this manual:</p>
+<ul>
+<li><a href="gitsbe.html#gitsbe">Gitsbe</a></li>
+<li><a href="drabme.html#drabme">Drabme</a></li>
+</ul>
+<p>Other DrugLogics-related packages (documented in their respective repositories) are:</p>
+<ul>
+<li><a href="https://bitbucket.org/asmundf/druglogics-synergy/src/master/">druglogics-synergy</a><br />
+A small package which runs sequentially Gitsbe and then Drabme, to make it easier for users to execute/test the two pipeline packages in one go.</li>
+<li><a href="https://github.com/druglogics/druglogics-roc">druglogics-roc</a><br />
+R shiny app that was built to use the results from Drabme’s <a href="drabme-install.html#drabme-output">ensemble-wise synergies output file</a> and produce a ROC (Receiver Operator Characteristic) and a PR (Precision-Recall) curve in order to assess the performance of Drabme’s synergy classifier/predictor.</li>
+<li><a href="https://github.com/druglogics/abmlog">abmlog</a><br />
+A generator of all possible boolean models with link operators.</li>
+<li><a href="emba.html#emba">emba</a></li>
+</ul>
+<div class="caution">
+<p>The Java-based packages are currently in <strong>private BitBucket repositories</strong> and will be publicly released in Github when the relevant publication gets accepted :)</p>
+</div>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="gitsbe.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/druglogics/druglogics-doc/blob/main/index.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

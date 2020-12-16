@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Training Data | DrugLogics Software Documentation</title>
+  <meta name="description" content="Training Data | DrugLogics Software Documentation" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Training Data | DrugLogics Software Documentation" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://druglogics.github.io/druglogics-doc/" />
+  
+  <meta property="og:description" content="Training Data | DrugLogics Software Documentation" />
+  <meta name="github-repo" content="druglogics/druglogics-doc" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Training Data | DrugLogics Software Documentation" />
+  
+  <meta name="twitter:description" content="Training Data | DrugLogics Software Documentation" />
+  
+
+<meta name="author" content="John Zobolas" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="gitsbe-install.html"/>
+<link rel="next" href="modeloutputs.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Druglogics Software Documentation</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="gitsbe.html"><a href="gitsbe.html"><i class="fa fa-check"></i>Gitsbe</a>
+<ul>
+<li class="chapter" data-level="" data-path="gitsbe-description.html"><a href="gitsbe-description.html"><i class="fa fa-check"></i>Description</a></li>
+<li class="chapter" data-level="" data-path="gitsbe-install.html"><a href="gitsbe-install.html"><i class="fa fa-check"></i>Installation and Usage</a>
+<ul>
+<li class="chapter" data-level="" data-path="gitsbe-install.html"><a href="gitsbe-install.html#install"><i class="fa fa-check"></i>Install</a></li>
+<li class="chapter" data-level="" data-path="gitsbe-install.html"><a href="gitsbe-install.html#gitsbe-example"><i class="fa fa-check"></i>Example</a></li>
+<li class="chapter" data-level="" data-path="gitsbe-install.html"><a href="gitsbe-install.html#gitsbe-input"><i class="fa fa-check"></i>Inputs</a></li>
+<li class="chapter" data-level="" data-path="gitsbe-install.html"><a href="gitsbe-install.html#gitsbe-output"><i class="fa fa-check"></i>Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="training-data.html"><a href="training-data.html"><i class="fa fa-check"></i>Training Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="training-data.html"><a href="training-data.html#unperturbed-condition---steady-state-response"><i class="fa fa-check"></i>Unperturbed Condition - Steady State Response</a></li>
+<li><a href="training-data.html#unperturbed-condition---globaloutput-response">Unperturbed Condition - <code>globaloutput</code> Response</a></li>
+<li class="chapter" data-level="" data-path="training-data.html"><a href="training-data.html#knockoutoverexpression-condition"><i class="fa fa-check"></i>Knockout/Overexpression Condition</a></li>
+<li class="chapter" data-level="" data-path="training-data.html"><a href="training-data.html#single-drug"><i class="fa fa-check"></i>Single Drug Perturbation</a></li>
+<li class="chapter" data-level="" data-path="training-data.html"><a href="training-data.html#double-drug"><i class="fa fa-check"></i>Double Drug Perturbation</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="modeloutputs.html"><a href="modeloutputs.html"><i class="fa fa-check"></i>Modeloutputs</a></li>
+<li class="chapter" data-level="" data-path="gitsbe-config.html"><a href="gitsbe-config.html"><i class="fa fa-check"></i>Configuration</a>
+<ul>
+<li class="chapter" data-level="" data-path="gitsbe-config.html"><a href="gitsbe-config.html#general"><i class="fa fa-check"></i>General</a></li>
+<li class="chapter" data-level="" data-path="gitsbe-config.html"><a href="gitsbe-config.html#attractor-tool"><i class="fa fa-check"></i>Attractor Tool</a></li>
+<li class="chapter" data-level="" data-path="gitsbe-config.html"><a href="gitsbe-config.html#export"><i class="fa fa-check"></i>Export</a></li>
+<li class="chapter" data-level="" data-path="gitsbe-config.html"><a href="gitsbe-config.html#genetic-algorithm"><i class="fa fa-check"></i>Genetic Algorithm</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="drabme.html"><a href="drabme.html"><i class="fa fa-check"></i>Drabme</a>
+<ul>
+<li class="chapter" data-level="" data-path="drabme-description.html"><a href="drabme-description.html"><i class="fa fa-check"></i>Description</a></li>
+<li class="chapter" data-level="" data-path="drabme-install.html"><a href="drabme-install.html"><i class="fa fa-check"></i>Installation and Usage</a>
+<ul>
+<li class="chapter" data-level="" data-path="drabme-install.html"><a href="drabme-install.html#install-1"><i class="fa fa-check"></i>Install</a></li>
+<li class="chapter" data-level="" data-path="drabme-install.html"><a href="drabme-install.html#drabme-example"><i class="fa fa-check"></i>Example</a></li>
+<li class="chapter" data-level="" data-path="drabme-install.html"><a href="drabme-install.html#drabme-input"><i class="fa fa-check"></i>Inputs</a></li>
+<li class="chapter" data-level="" data-path="drabme-install.html"><a href="drabme-install.html#drabme-output"><i class="fa fa-check"></i>Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="drug-panel.html"><a href="drug-panel.html"><i class="fa fa-check"></i>Drug Panel</a></li>
+<li class="chapter" data-level="" data-path="perturbations.html"><a href="perturbations.html"><i class="fa fa-check"></i>Perturbations</a></li>
+<li class="chapter" data-level="" data-path="drabme-config.html"><a href="drabme-config.html"><i class="fa fa-check"></i>Configuration</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="emba.html"><a href="emba.html"><i class="fa fa-check"></i>emba</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">DrugLogics Software Documentation</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="training-data" class="section level2 unnumbered" number="">
+<h2>Training Data</h2>
+<p>The training data file includes specific <em>condition-response</em> pairs (<strong>observations</strong>) which are used to calculate the fitness of the boolean models during the <strong>evolution</strong> process of the <a href="gitsbe-description.html#gitsbe-description">genetic algorithm</a>.
+For each observation, a different <em>fitness</em> score is calculated.
+Every fitness score is between <span class="math inline">\(0\)</span> (no fitness at all) and <span class="math inline">\(1\)</span> (perfect fitness).
+The format of each observation is:</p>
+<div class="blue-box fitcontent">
+<p><strong>Condition</strong><br />
+&lt;data&gt;<br />
+<strong>Response</strong><br />
+&lt;data&gt;<br />
+<strong>Weight</strong>:&lt;number&gt;</p>
+</div>
+<p>The <strong>weight</strong> numbers (can be continuous values) are used after each individual observation <em>fitness</em> score has been calculated, to derive a <strong>total weighted average fitness score</strong> for the model which is <em>fitted</em> to the training data.</p>
+<p>We now present the currently <strong>supported observations</strong>:</p>
+<div id="unperturbed-condition---steady-state-response" class="section level3 unnumbered" number="">
+<h3>Unperturbed Condition - Steady State Response</h3>
+<p>Example:</p>
+<div class="blue-box fitcontent">
+<p><strong>Condition</strong><br />
+-<br />
+<strong>Response</strong><br />
+A:0 B:1 C:0 D:0.453<br />
+<strong>Weight</strong>:1</p>
+</div>
+<p>This is the most commonly used training option.
+Note that the response values are <em>tab-separated</em> and that the numbers assinged to each of the entities, define an activity value in the <span class="math inline">\([0,1]\)</span> interval (continuous values are allowed).
+The entities have to be nodes from the <a href="gitsbe-install.html#gitsbe-input">initial network</a>, otherwise they are ignored.
+Thus, a boolean model with it’s attractors calculated, gets a fitness score for this kind of observation that describes how <strong>close it’s attractors are to the specified steady state response</strong>.</p>
+<p>For example, if a boolean model has only 1 trapspace attractor, on which the nodes {A,B,C,D} have values {0,1,-,-}, the fitness would be:
+<span class="math display">\[fitness=\frac{\sum matches}{\#responses}=\frac{1+1+(1-abs[0-0.5])+(1-abs[0.453-0.5])}{4}=\frac{3.453}{4} \simeq 0.86\]</span></p>
+<p>If a model has multiple attractors, then first we find the average number of matches across all attractors and then divide by the number of responses.
+For example, if the previous model had one more attractor for which the nodes perfectly matched the observed responses (so <span class="math inline">\(4\)</span> in total matches) we would have an average value of matches across the two attractors equal to <span class="math inline">\((4+3.453)/2=3.7265\)</span> and a <em>fitness</em> thus equal to <span class="math inline">\(3.7265/4\simeq0.93\)</span> (which makes sense since the second attractor matched better the observed state and thus <strong>boosted</strong> the fitness).</p>
+</div>
+<div id="unperturbed-condition---globaloutput-response" class="section level3 unnumbered" number="">
+<h3>Unperturbed Condition - <code>globaloutput</code> Response</h3>
+<p>Example:</p>
+<div class="blue-box fitcontent">
+<p><strong>Condition</strong><br />
+-<br />
+<strong>Response</strong><br />
+globaloutput:1<br />
+<strong>Weight</strong>:1</p>
+</div>
+<p>This training option pretty much translates to: <strong>if I leave the system unperturbed, it continues proliferating</strong> - a direct description of a cancer cell network system.
+So, with this type of observation we can train models to match a <strong>growing cell/proliferation profile</strong>.</p>
+<p>Note that the <strong>Response</strong> must always be in the <code>globaloutput:&lt;number&gt;</code> format and that the absolute observed <code>globaloutput</code> response can take any value in the <span class="math inline">\([0,1]\)</span> interval (from a cell death state to a cell proliferation state so to speak).
+We mostly define it as an <span class="math inline">\(1\)</span> in this kind of observation.</p>
+<p>In order to find the <em>fitness</em> of a boolean model to this kind of observation, we first calculate it’s attractors, compute it’s <em>normalized predicted</em> <code>globaloutput</code> <span class="math inline">\(gl_{pred}\)</span> using Equation No. <a href="modeloutputs.html#eq:modeloutputs-norm">(2)</a> and then calculate:
+<span class="math display">\[fitness=1-abs(gl_{obs}-gl_{pred})\]</span></p>
+<p>where <span class="math inline">\(gl_{obs}\)</span> is the value defined in the <strong>Response</strong> (usually <span class="math inline">\(1\)</span> in this case).</p>
+</div>
+<div id="knockoutoverexpression-condition" class="section level3 unnumbered" number="">
+<h3>Knockout/Overexpression Condition</h3>
+<p>Example:</p>
+<div class="blue-box fitcontent">
+<p><strong>Condition</strong><br />
+A:0 B:1<br />
+<strong>Response</strong><br />
+globaloutput:0<br />
+<strong>Weight</strong>:0.1</p>
+</div>
+<p>The above example translates to: <em>knockout</em> of A and <em>overexpression</em> of B entities (e.g. proteins/genes) combined, result in complete cell death (these observations are usually based on some experimental data).
+So with this kind of observation, we <strong>train our model’s output behaviour to best fit an experimental tested knockout or overexpression of one or many biological entities</strong>.</p>
+<p>The <strong>Response</strong> must always be in the <code>globaloutput:&lt;number&gt;</code> format, with <code>&lt;number&gt;</code> a continuous value in the <span class="math inline">\([0,1]\)</span> interval (ranging from cell death to a cell proliferation state).</p>
+<p>The <strong>Condition</strong> must have <em>tab-separated</em> nodes with activity values (one or many).
+The activity values must be either <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>, otherwise they are ignored.
+This is because we use logical modeling and substitute the equations of the boolean model as <code>A *= false</code> and <code>B *= true</code> respectively, before we calculate its attractors (both <code>A</code> and <code>B</code> must be in the <a href="gitsbe-install.html#gitsbe-input">defined network model</a>).
+After the attractors of the modified model are calculated, we compute it’s <em>normalized predicted</em> <code>globaloutput</code> <span class="math inline">\(gl_{pred}\)</span> using Equation No. <a href="modeloutputs.html#eq:modeloutputs-norm">(2)</a> and then calculate:
+<span class="math display">\[fitness=1-abs(gl_{obs}-gl_{pred})\]</span></p>
+<p>where <span class="math inline">\(gl_{obs}\)</span> is the value defined in the <strong>Response</strong> (usually <span class="math inline">\(0\)</span> in this case).</p>
+</div>
+<div id="single-drug" class="section level3 unnumbered" number="">
+<h3>Single Drug Perturbation</h3>
+<p>Example:</p>
+<div class="blue-box fitcontent">
+<p><strong>Condition</strong><br />
+Drug(A)<br />
+<strong>Response</strong><br />
+globaloutput:0<br />
+<strong>Weight</strong>:0.1</p>
+</div>
+<p>With this observation we define <strong>how a single drug perturbation affects our model’s output state</strong> (based on experimental data).</p>
+<p>The <strong>Response</strong> must always be in the <code>globaloutput:&lt;number&gt;</code> format, with <code>&lt;number&gt;</code> a continuous value in the <span class="math inline">\([0,1]\)</span> interval (ranging from cell death to a cell proliferation state).</p>
+<p>The <strong>Condition</strong> must be in the <code>Drug(&lt;DrugName&gt;)</code> format, where the <code>&lt;DrugName&gt;</code> is one of the drugs defined in the <a href="drug-panel.html#drug-panel">drug panel</a>.
+Thus we can find the drug’s (defined) targets and perturb our model accordingly: if for example the <code>PI</code> drug <em>inhibits</em> entity <code>A</code> (the target) we change our model’s respective equation to <code>A *= false</code>.
+Same logic if the drug had <em>activating</em> targets - the respective equations change to <code>Target *= true</code> (note that this is scarcely used since most drugs inhibit their targets).</p>
+<p>Once the model is modified and it’s attractors calculated, we compute it’s <em>normalized predicted</em> <code>globaloutput</code> <span class="math inline">\(gl_{pred}\)</span> using Equation No. <a href="modeloutputs.html#eq:modeloutputs-norm">(2)</a> and then calculate:
+<span class="math display">\[fitness=1-abs(gl_{obs}-gl_{pred})\]</span></p>
+<p>where <span class="math inline">\(gl_{obs}\)</span> is the value defined in the <strong>Response</strong> (usually <span class="math inline">\(0\)</span> in this case).</p>
+</div>
+<div id="double-drug" class="section level3 unnumbered" number="">
+<h3>Double Drug Perturbation</h3>
+<p>Example:</p>
+<div class="blue-box fitcontent">
+<p><strong>Condition</strong><br />
+Drug(A+B) &lt; min(Drug(A),Drug(B))<br />
+<strong>Response</strong><br />
+globaloutput:-0.2<br />
+<strong>Weight</strong>:1</p>
+</div>
+<p>In this particular case, we can <strong>train our model to best fit a synergistic observation between two drugs</strong>.</p>
+<p>To derive that two drugs are synergistic, the experimental data are analyzed with various mathematical and computational models which compare the <em>actual observed response</em> with the <em>predicted (by the model) non-interaction</em> response.
+If the measured response is lower than the expected non-interaction one, a synergy is defined and the <em>excess</em> - the relative <code>globaloutput</code> (<span class="math inline">\(gl_{rel}\)</span>) between the actual response and the predicted non-interaction response - is used as input in the <strong>Response</strong> (format: <code>globaloutput:&lt;number&gt;</code>).</p>
+<p>A negative value for the relative globaloutput <span class="math inline">\(gl_{rel}\)</span>/<code>&lt;number&gt;</code> defines a synergistic response while a positive value an antogonistic one (so we can also <strong>train the model for antagonism</strong> between the two drugs).
+Given that the <em>observed</em> and <em>non-interaction</em> responses are in the <span class="math inline">\([0,1]\)</span> interval (ranging from cell death to a cell proliferation state), their difference (the relative <code>globaloutput</code>) must belong in the <span class="math inline">\([-1,1]\)</span> interval (ranging from a highly synergistic to a highly antagonistic relationship between the 2 drugs).</p>
+<p>For the calculation of the model’s <em>fitness</em> we can use either an <em>HSA</em> (Highest Single Agent) <strong>Condition</strong> (as in the example above) where the format would be <code>Drug(A+B) &lt; min(Drug(A),Drug(B))</code> (<code>A</code> and <code>B</code> are drugs defined in the <a href="drug-panel.html#drug-panel">drug panel</a>) or a <em>Bliss</em> <strong>Condition</strong> <span class="citation">(Bliss <a href="references.html#ref-BLISS1939" role="doc-biblioref">1939</a>)</span>, with the <code>Drug(A+B) &lt; product(Drug(A),Drug(B))</code> format.
+In each case, we compute the attractors of 3 models: one perturbed with drug <code>A</code> alone, one perturbed with drug <code>B</code> alone and one perturbed with (the targets of) both drugs.
+Then, using the attractors of each model and Equation No. <a href="modeloutputs.html#eq:modeloutputs-norm">(2)</a>, we compute each respective <em>normalized predicted</em> <code>globaloutput</code> as: <span class="math inline">\(gl_A,gl_B,gl_{A+B}\)</span>.</p>
+<p>Then:</p>
+<ul>
+<li>In the case of an <em>HSA</em> <strong>Condition</strong>, we compute the minimum globaloutput <span class="math inline">\(gl_{min}=min(gl_A,gl_B)\)</span> and then the <em>HSA</em> excess as: <span class="math inline">\(excess=gl_{A+B}-gl_{min} \in [-1,1]\)</span>.</li>
+<li>In the case of a <em>Bliss</em> <strong>Condition</strong>, we compute the globaloutput product <span class="math inline">\(gl_{product}=gl_A\times gl_B\)</span> and then the <em>Bliss</em> excess as: <span class="math inline">\(excess=gl_{A+B}-gl_{product} \in [-1,1]\)</span></li>
+</ul>
+<p>Next, in order to find how close that <em>excess</em> is to the one given in the training observation (the relative <code>globaloutput</code> <span class="math inline">\(gl_{rel}\)</span>), we calculate their absolute difference and normalize it to get a value in the <span class="math inline">\([0,1]\)</span> interval with which we can find the <em>fitness</em>:
+<span class="math display">\[fitness=1-\frac{abs(excess-gl_{rel})}{2}\]</span></p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="gitsbe-install.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="modeloutputs.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/druglogics/druglogics-doc/edit/main/gitsbe.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/druglogics/druglogics-doc/blob/main/gitsbe.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Installation and Usage | DrugLogics Software Documentation</title>
+  <meta name="description" content="Installation and Usage | DrugLogics Software Documentation" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Installation and Usage | DrugLogics Software Documentation" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://druglogics.github.io/druglogics-doc/" />
+  
+  <meta property="og:description" content="Installation and Usage | DrugLogics Software Documentation" />
+  <meta name="github-repo" content="druglogics/druglogics-doc" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Installation and Usage | DrugLogics Software Documentation" />
+  
+  <meta name="twitter:description" content="Installation and Usage | DrugLogics Software Documentation" />
+  
+
+<meta name="author" content="John Zobolas" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="drabme-description.html"/>
+<link rel="next" href="drug-panel.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Druglogics Software Documentation</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="gitsbe.html"><a href="gitsbe.html"><i class="fa fa-check"></i>Gitsbe</a>
+<ul>
+<li class="chapter" data-level="" data-path="gitsbe-description.html"><a href="gitsbe-description.html"><i class="fa fa-check"></i>Description</a></li>
+<li class="chapter" data-level="" data-path="gitsbe-install.html"><a href="gitsbe-install.html"><i class="fa fa-check"></i>Installation and Usage</a>
+<ul>
+<li class="chapter" data-level="" data-path="gitsbe-install.html"><a href="gitsbe-install.html#install"><i class="fa fa-check"></i>Install</a></li>
+<li class="chapter" data-level="" data-path="gitsbe-install.html"><a href="gitsbe-install.html#gitsbe-example"><i class="fa fa-check"></i>Example</a></li>
+<li class="chapter" data-level="" data-path="gitsbe-install.html"><a href="gitsbe-install.html#gitsbe-input"><i class="fa fa-check"></i>Inputs</a></li>
+<li class="chapter" data-level="" data-path="gitsbe-install.html"><a href="gitsbe-install.html#gitsbe-output"><i class="fa fa-check"></i>Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="training-data.html"><a href="training-data.html"><i class="fa fa-check"></i>Training Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="training-data.html"><a href="training-data.html#unperturbed-condition---steady-state-response"><i class="fa fa-check"></i>Unperturbed Condition - Steady State Response</a></li>
+<li><a href="training-data.html#unperturbed-condition---globaloutput-response">Unperturbed Condition - <code>globaloutput</code> Response</a></li>
+<li class="chapter" data-level="" data-path="training-data.html"><a href="training-data.html#knockoutoverexpression-condition"><i class="fa fa-check"></i>Knockout/Overexpression Condition</a></li>
+<li class="chapter" data-level="" data-path="training-data.html"><a href="training-data.html#single-drug"><i class="fa fa-check"></i>Single Drug Perturbation</a></li>
+<li class="chapter" data-level="" data-path="training-data.html"><a href="training-data.html#double-drug"><i class="fa fa-check"></i>Double Drug Perturbation</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="modeloutputs.html"><a href="modeloutputs.html"><i class="fa fa-check"></i>Modeloutputs</a></li>
+<li class="chapter" data-level="" data-path="gitsbe-config.html"><a href="gitsbe-config.html"><i class="fa fa-check"></i>Configuration</a>
+<ul>
+<li class="chapter" data-level="" data-path="gitsbe-config.html"><a href="gitsbe-config.html#general"><i class="fa fa-check"></i>General</a></li>
+<li class="chapter" data-level="" data-path="gitsbe-config.html"><a href="gitsbe-config.html#attractor-tool"><i class="fa fa-check"></i>Attractor Tool</a></li>
+<li class="chapter" data-level="" data-path="gitsbe-config.html"><a href="gitsbe-config.html#export"><i class="fa fa-check"></i>Export</a></li>
+<li class="chapter" data-level="" data-path="gitsbe-config.html"><a href="gitsbe-config.html#genetic-algorithm"><i class="fa fa-check"></i>Genetic Algorithm</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="drabme.html"><a href="drabme.html"><i class="fa fa-check"></i>Drabme</a>
+<ul>
+<li class="chapter" data-level="" data-path="drabme-description.html"><a href="drabme-description.html"><i class="fa fa-check"></i>Description</a></li>
+<li class="chapter" data-level="" data-path="drabme-install.html"><a href="drabme-install.html"><i class="fa fa-check"></i>Installation and Usage</a>
+<ul>
+<li class="chapter" data-level="" data-path="drabme-install.html"><a href="drabme-install.html#install-1"><i class="fa fa-check"></i>Install</a></li>
+<li class="chapter" data-level="" data-path="drabme-install.html"><a href="drabme-install.html#drabme-example"><i class="fa fa-check"></i>Example</a></li>
+<li class="chapter" data-level="" data-path="drabme-install.html"><a href="drabme-install.html#drabme-input"><i class="fa fa-check"></i>Inputs</a></li>
+<li class="chapter" data-level="" data-path="drabme-install.html"><a href="drabme-install.html#drabme-output"><i class="fa fa-check"></i>Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="drug-panel.html"><a href="drug-panel.html"><i class="fa fa-check"></i>Drug Panel</a></li>
+<li class="chapter" data-level="" data-path="perturbations.html"><a href="perturbations.html"><i class="fa fa-check"></i>Perturbations</a></li>
+<li class="chapter" data-level="" data-path="drabme-config.html"><a href="drabme-config.html"><i class="fa fa-check"></i>Configuration</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="emba.html"><a href="emba.html"><i class="fa fa-check"></i>emba</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">DrugLogics Software Documentation</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="drabme-install" class="section level2 unnumbered" number="">
+<h2>Installation and Usage</h2>
+<div id="install-1" class="section level3 unnumbered" number="">
+<h3>Install</h3>
+<p>Prerequisites: <code>maven 3.6.0</code> and <code>Java 8</code>.</p>
+<p>Installation commands:</p>
+<pre><code>git clone https://bitbucket.org/asmundf/drabme.git
+mvn clean install</code></pre>
+<div class="note">
+<p>Note that <a href="drabme.html#drabme">Drabme</a> calculates attractors for the boolean models it generates using either the <a href="https://github.com/alanavc/BNReduction">BNReduction tool</a> <span class="citation">(Veliz-Cuba et al. <a href="references.html#ref-Veliz-Cuba2014" role="doc-biblioref">2014</a>)</span>, the <a href="https://github.com/colomoto/bioLQM">BioLQM</a> Java library <span class="citation">(Naldi <a href="references.html#ref-Naldi2018" role="doc-biblioref">2018</a>)</span> or <a href="https://github.com/pauleve/mpbn">the Most Permissive Boolean Networks</a> framework <span class="citation">(Paulevé et al. <a href="references.html#ref-Pauleve2020" role="doc-biblioref">2020</a>)</span>.
+BioLQM is included by default in the code.
+The BNReduction and MPBN scripts have to be manually installed following the <a href="https://bitbucket.org/asmundf/druglogics_dep/src/master/">respective documentation</a>.</p>
+</div>
+</div>
+<div id="drabme-example" class="section level3 unnumbered" number="">
+<h3>Example</h3>
+<p>The recommended way to run Drabme is to use it’s <code>Launcher</code>.
+From the root directory of the repo run:</p>
+<pre><code>cd example_run_ags
+java -cp ../target/drabme-1.2.0-jar-with-dependencies.jar eu.druglogics.drabme.Launcher --project=test --modelsDir=models --drugs=toy_ags_drugpanel.tab --perturbations=toy_ags_perturbations.tab --config=toy_ags_config.tab --modeloutputs=toy_ags_modeloutputs.tab</code></pre>
+<p>or run the <code>mvn</code> profile directly (same input as the command above through the <code>pom.xml</code>):</p>
+<pre><code>mvn compile -P runExampleAGS</code></pre>
+</div>
+<div id="drabme-input" class="section level3 unnumbered" number="">
+<h3>Inputs</h3>
+<p>Running the Drabme <code>Launcher</code> with no parameters, generates a <strong>usage message</strong> with the available options.
+The <strong>required</strong> parameters are:</p>
+<ul>
+<li><code>--modelsDir</code>: A <code>models</code> directory with files that were <a href="gitsbe-install.html#gitsbe-output">generated by Gitsbe</a> (the files are boolean models in <code>.gitsbe</code> format)</li>
+<li><code>--drugs</code>: <a href="drug-panel.html#drug-panel">drug panel file</a></li>
+<li><code>--modeloutputs</code>: <a href="modeloutputs.html#modeloutputs">model outputs file</a></li>
+<li><code>--config</code>: <a href="drabme-config.html#drabme-config">configuration file</a></li>
+</ul>
+<p>The <strong>non-required</strong> parameters are:</p>
+<ul>
+<li><code>--project</code>: the project name which is used as the name of the directory where the <a href="drabme-install.html#drabme-output">outputs</a> will be stored.</li>
+<li><code>--perturbations</code>: <a href="perturbations.html#perturbations">perturbations file</a></li>
+</ul>
+</div>
+<div id="drabme-output" class="section level3 unnumbered" number="">
+<h3>Outputs</h3>
+<p>The expected outputs of Drabme’s <code>Launcher</code> can be classified into 3 categories of generated files (see also <a href="drabme-description.html#drabme-description">Description</a>):</p>
+<ol style="list-style-type: decimal">
+<li><strong>Model-wise</strong> results
+<ul>
+<li>A model-wise <em>responses</em> file (for every tested <a href="perturbations.html#perturbations">perturbation</a>, all models’ <a href="modeloutputs.html#eq:modeloutputs">global output responses</a>)</li>
+<li>A model-wise <em>synergies</em> file (for every drug combination tested, the number of models that found it synergistic vs non-synergistic)</li>
+</ul></li>
+<li><strong>Ensemble-wise</strong> results (or <strong>perturbation-wise</strong>)
+<ul>
+<li>A ensemble-wise <em>responses</em> file (for every tested <a href="perturbations.html#perturbations">perturbation</a>, the average response of all models that had a global output response - i.e. had an attractor<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>)</li>
+<li>A ensemble-wise <em>synergies</em> file<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> (for every drug combination tested, a <em>synergy score</em> indicating how much synergistic that combination was - a more negative number means more synergistic, a positive number indicates antagonism)</li>
+</ul></li>
+<li>A <strong>model predictions</strong> file
+<ul>
+<li>For every model and drug combination tested, this file stores a value that indicates if the corresponding drug combination manifests <em>synergistically</em> or not in the respective model.
+The three possible values are: <span class="math inline">\(0\)</span> = no synergy predicted, <span class="math inline">\(1\)</span> = synergy predicted, <span class="math inline">\(NA\)</span> = couldn’t find attractors in either the drug combination inhibited model or in any of the subset-drug inhibited models (this output value is impossible when trapspaces are used for the <a href="gitsbe-config.html#attractor-tool">computation of the attractors</a>).</li>
+</ul></li>
+</ol>
+<div class="note">
+<p>It is for the better that all input files are on the same directory as in the <a href="drabme-install.html#drabme-example">example above</a>.
+In any case, the directory with all the output files when running the <code>Launcher</code> will be in the same path as the configuration file.</p>
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="6">
+<li id="fn6"><p>This is just the average value of the data in the <strong>model-wise</strong> <em>responses</em> file<a href="drabme-install.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>One of the most important outputs of Drabme. The <a href="https://github.com/druglogics/druglogics-roc">druglogics-roc</a> R shiny app was built to take the results from this output file and produce a ROC &amp; PR curve.<a href="drabme-install.html#fnref7" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="drabme-description.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="drug-panel.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/druglogics/druglogics-doc/edit/main/drabme.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/druglogics/druglogics-doc/blob/main/drabme.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

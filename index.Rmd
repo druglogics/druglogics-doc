@@ -35,7 +35,7 @@ A small package which runs sequentially Gitsbe and then Drabme, to make it easie
 - [druglogics-roc](https://github.com/druglogics/druglogics-roc)  
 R shiny app that was built to use the results from Drabme's [ensemble-wise synergies output file](#drabme-output) and produce a ROC (Receiver Operator Characteristic) and a PR (Precision-Recall) curve in order to assess the performance of Drabme's synergy classifier/predictor.
 - [abmlog](https://github.com/druglogics/abmlog)  
-A generator of all possible boolean models with link operators.
+A generator of all possible boolean models with AND/OR-NOT link operators.
 - [emba](#emba)
 
 :::{.caution}

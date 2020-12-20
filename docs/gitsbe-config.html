@@ -67,7 +67,7 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Druglogics Software Documentation</a></li>
+<li><a href="./">Contents</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
@@ -166,7 +166,7 @@ A good value for this option would be to have <strong>as many parallel simulatio
 <li><p><code>attractor_tool</code>: tool to use for the calculation of attractors.</p>
 <p>Allowed values: <code>bnet_reduction</code>, <code>bnet_reduction_reduced</code>, <code>biolqm_stable_states</code>, <code>biolqm_trapspaces</code>, <code>mpbn_trapspaces</code>.</p>
 <p>The first two options use the <a href="https://github.com/alanavc/BNReduction">BNReduction tool</a> <span class="citation">(Veliz-Cuba et al. <a href="references.html#ref-Veliz-Cuba2014" role="doc-biblioref">2014</a>)</span>, next two the <a href="https://github.com/colomoto/bioLQM">BioLQM</a> Java library <span class="citation">(Naldi <a href="references.html#ref-Naldi2018" role="doc-biblioref">2018</a>)</span> and the last one the <a href="https://github.com/pauleve/mpbn">Most Permissive Boolean Networks</a> framework <span class="citation">(Paulevé et al. <a href="references.html#ref-Pauleve2020" role="doc-biblioref">2020</a>)</span>.
-Follow the <a href="https://bitbucket.org/asmundf/druglogics_dep/src/master/">respective documentation</a> to install and enable the two BNReduction-based versions and the MPBN <code>Python</code> script (BioLQM is included by default).</p>
+Follow the <a href="https://github.com/druglogics/druglogics-dep#readme">respective documentation</a> to install and enable the two BNReduction-based versions and the MPBN <code>Python</code> script (BioLQM is included by default).</p>
 <p>The <code>bnet_reduction</code> and <code>biolqm_stable_states</code> options calculate <strong>all the fixpoints</strong> of the boolean models.
 The <code>bnet_reduction_reduced</code> works only if the model has <strong>one fixpoint attractor</strong> (or none).
 Note though that there can be models that have one fixpoint and the <em>reduced</em> BNReduction version is not able to find it.
@@ -348,8 +348,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/druglogics/druglogics-doc/edit/main/gitsbe.Rmd",
-"text": "Edit"
+"link": null,
+"text": null
 },
 "history": {
 "link": null,

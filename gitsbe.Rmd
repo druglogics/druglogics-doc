@@ -3,7 +3,7 @@
 [Gitsbe] is an acronym for *Genetic Interactions To Specific Boolean Equations*.
 This module defines boolean models compliant with observed behavior (e.g. steady state or perturbation data) using an automated, model parameterization genetic algorithm.
 
-The code of the package is available in Bitbucket.
+The code of the package is available on [Github](https://github.com/druglogics/gitsbe).
 
 This documentation is for the software version ``r gitsbe_version``
 
@@ -42,7 +42,7 @@ Prerequisites: `maven 3.6.0` and `Java 8`.
 
 Installation commands:
 ```
-git clone https://bitbucket.org/asmundf/gitsbe.git
+git clone https://github.com/druglogics/gitsbe.git
 mvn clean install
 ```
 

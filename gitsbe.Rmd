@@ -43,6 +43,7 @@ Prerequisites: `maven 3.6.0` and `Java 8`.
 Installation commands:
 ```
 git clone https://github.com/druglogics/gitsbe.git
+cd gitsbe
 mvn clean install
 ```
 

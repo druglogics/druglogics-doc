@@ -40,9 +40,11 @@ The more negative that value is, the more synergistic the drug combination is *e
 
 Prerequisites: `maven 3.6.0` and `Java 8`.
 
-Installation commands:
+First, install [Gitsbe](#gitsbe).
+Then:
 ```
-git clone https://bitbucket.org/asmundf/drabme.git
+git clone https://github.com/druglogics/drabme.git
+cd drabme
 mvn clean install
 ```
 

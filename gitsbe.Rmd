@@ -49,7 +49,7 @@ mvn clean install
 :::{.note}
 Note that [Gitsbe](#gitsbe) calculates attractors for the boolean models it generates using either the [BNReduction tool](https://github.com/alanavc/BNReduction) [@Veliz-Cuba2014], the [BioLQM](https://github.com/colomoto/bioLQM) Java library [@Naldi2018] or [the Most Permissive Boolean Networks](https://github.com/pauleve/mpbn) framework [@Pauleve2020].
 BioLQM is included by default in the code.
-The BNReduction and MPBN scripts have to be manually installed following the [respective documentation](https://bitbucket.org/asmundf/druglogics_dep/src/master/).
+The BNReduction and MPBN scripts have to be manually installed following the [respective documentation](https://github.com/druglogics/druglogics-dep#readme).
 :::
 
 ### Example {-#gitsbe-example}
@@ -332,7 +332,7 @@ The format of each configuration option in the file must be: `<parameter>:  <val
   Allowed values: `bnet_reduction`, `bnet_reduction_reduced`, `biolqm_stable_states`, `biolqm_trapspaces`, `mpbn_trapspaces`.
 
   The first two options use the [BNReduction tool](https://github.com/alanavc/BNReduction) [@Veliz-Cuba2014], next two the [BioLQM](https://github.com/colomoto/bioLQM) Java library [@Naldi2018] and the last one the [Most Permissive Boolean Networks](https://github.com/pauleve/mpbn) framework [@Pauleve2020].
-  Follow the [respective documentation](https://bitbucket.org/asmundf/druglogics_dep/src/master/) to install and enable the two BNReduction-based versions and the MPBN `Python` script (BioLQM is included by default).
+  Follow the [respective documentation](https://github.com/druglogics/druglogics-dep#readme) to install and enable the two BNReduction-based versions and the MPBN `Python` script (BioLQM is included by default).
 
   The `bnet_reduction` and `biolqm_stable_states` options calculate **all the fixpoints** of the boolean models.
   The `bnet_reduction_reduced` works only if the model has **one fixpoint attractor** (or none). 

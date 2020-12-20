@@ -49,7 +49,7 @@ mvn clean install
 :::{.note}
 Note that [Drabme](#drabme) calculates attractors for the boolean models it generates using either the [BNReduction tool](https://github.com/alanavc/BNReduction) [@Veliz-Cuba2014], the [BioLQM](https://github.com/colomoto/bioLQM) Java library [@Naldi2018]  or [the Most Permissive Boolean Networks](https://github.com/pauleve/mpbn) framework [@Pauleve2020].
 BioLQM is included by default in the code.
-The BNReduction and MPBN scripts have to be manually installed following the [respective documentation](https://bitbucket.org/asmundf/druglogics_dep/src/master/).
+The BNReduction and MPBN scripts have to be manually installed following the [respective documentation](https://github.com/druglogics/druglogics-dep#readme).
 :::
 
 ### Example {-#drabme-example}

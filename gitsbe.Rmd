@@ -47,6 +47,10 @@ cd gitsbe
 mvn clean install
 ```
 
+The above command creates a package `<name>-jar-with-dependencies.jar` file with all dependencies installed, in the `target` directory.
+
+Alternatively, you could just use directly one of the [released gitsbe packages](https://github.com/druglogics/gitsbe/packages/).
+
 :::{.note}
 Note that [Gitsbe](#gitsbe) calculates attractors for the boolean models it generates using either the [BNReduction tool](https://github.com/alanavc/BNReduction) [@Veliz-Cuba2014], the [BioLQM](https://github.com/colomoto/bioLQM) Java library [@Naldi2018] or [the Most Permissive Boolean Networks](https://github.com/pauleve/mpbn) framework [@Pauleve2020].
 BioLQM is included by default in the code.

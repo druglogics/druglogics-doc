@@ -40,13 +40,17 @@ The more negative that value is, the more synergistic the drug combination is *e
 
 Prerequisites: `maven 3.6.0` and `Java 8`.
 
-First, install [Gitsbe](#gitsbe).
+First, install [Gitsbe](#gitsbe-install).
 Then:
 ```
 git clone https://github.com/druglogics/drabme.git
 cd drabme
 mvn clean install
 ```
+
+The above command creates a package `<name>-jar-with-dependencies.jar` file with all dependencies installed, in the `target` directory.
+
+Alternatively, you could just use directly one of the [released drabme packages](https://github.com/druglogics/drabme/packages/).
 
 :::{.note}
 Note that [Drabme](#drabme) calculates attractors for the boolean models it generates using either the [BNReduction tool](https://github.com/alanavc/BNReduction) [@Veliz-Cuba2014], the [BioLQM](https://github.com/colomoto/bioLQM) Java library [@Naldi2018]  or [the Most Permissive Boolean Networks](https://github.com/pauleve/mpbn) framework [@Pauleve2020].

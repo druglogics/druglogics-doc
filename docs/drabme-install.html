@@ -139,11 +139,13 @@
 <div id="install-1" class="section level3 unnumbered" number="">
 <h3>Install</h3>
 <p>Prerequisites: <code>maven 3.6.0</code> and <code>Java 8</code>.</p>
-<p>First, install <a href="gitsbe.html#gitsbe">Gitsbe</a>.
+<p>First, install <a href="gitsbe-install.html#gitsbe-install">Gitsbe</a>.
 Then:</p>
 <pre><code>git clone https://github.com/druglogics/drabme.git
 cd drabme
 mvn clean install</code></pre>
+<p>The above command creates a package <code>&lt;name&gt;-jar-with-dependencies.jar</code> file with all dependencies installed, in the <code>target</code> directory.</p>
+<p>Alternatively, you could just use directly one of the <a href="https://github.com/druglogics/drabme/packages/">released drabme packages</a>.</p>
 <div class="note">
 <p>Note that <a href="drabme.html#drabme">Drabme</a> calculates attractors for the boolean models it generates using either the <a href="https://github.com/alanavc/BNReduction">BNReduction tool</a> <span class="citation">(Veliz-Cuba et al. <a href="references.html#ref-Veliz-Cuba2014" role="doc-biblioref">2014</a>)</span>, the <a href="https://github.com/colomoto/bioLQM">BioLQM</a> Java library <span class="citation">(Naldi <a href="references.html#ref-Naldi2018" role="doc-biblioref">2018</a>)</span> or <a href="https://github.com/pauleve/mpbn">the Most Permissive Boolean Networks</a> framework <span class="citation">(Paulevé et al. <a href="references.html#ref-Pauleve2020" role="doc-biblioref">2020</a>)</span>.
 BioLQM is included by default in the code.

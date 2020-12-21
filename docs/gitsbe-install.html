@@ -143,6 +143,8 @@
 <pre><code>git clone https://github.com/druglogics/gitsbe.git
 cd gitsbe
 mvn clean install</code></pre>
+<p>The above command creates a package <code>&lt;name&gt;-jar-with-dependencies.jar</code> file with all dependencies installed, in the <code>target</code> directory.</p>
+<p>Alternatively, you could just use directly one of the <a href="https://github.com/druglogics/gitsbe/packages/">released gitsbe packages</a>.</p>
 <div class="note">
 <p>Note that <a href="gitsbe.html#gitsbe">Gitsbe</a> calculates attractors for the boolean models it generates using either the <a href="https://github.com/alanavc/BNReduction">BNReduction tool</a> <span class="citation">(Veliz-Cuba et al. <a href="references.html#ref-Veliz-Cuba2014" role="doc-biblioref">2014</a>)</span>, the <a href="https://github.com/colomoto/bioLQM">BioLQM</a> Java library <span class="citation">(Naldi <a href="references.html#ref-Naldi2018" role="doc-biblioref">2018</a>)</span> or <a href="https://github.com/pauleve/mpbn">the Most Permissive Boolean Networks</a> framework <span class="citation">(Paulevé et al. <a href="references.html#ref-Pauleve2020" role="doc-biblioref">2020</a>)</span>.
 BioLQM is included by default in the code.

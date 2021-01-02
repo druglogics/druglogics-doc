@@ -366,7 +366,7 @@ Options for **exporting** the [initial network file](#gitsbe-input) to different
 
   An example of a simple network in `gitsbe` format:
   
-  ::: {.blue-box .fitcontent}
+  ::: {.blue-box .fitcontent #gitsbe-format}
   **modelname**: test_model  
   **fitness**: 0.82  
   **stablestate**: 110  

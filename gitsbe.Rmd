@@ -1,6 +1,6 @@
 # Gitsbe {-#gitsbe}
 
-[Gitsbe] is an acronym for *Genetic Interactions To Specific Boolean Equations*.
+[Gitsbe] is an acronym for *Generic Interactions To Specific Boolean Equations*.
 This module defines boolean models compliant with observed behavior (e.g. steady state or perturbation data) using an automated, model parameterization genetic algorithm.
 
 The code of the package is available on [Github](https://github.com/druglogics/gitsbe).

@@ -388,7 +388,7 @@ Options for **exporting** the [initial network file](#gitsbe-input) to different
 - `export_to_sif`. Logical (`true` or `false`)
 
   The Cytoscape’s single-interaction format. 
-  Example of a topology with two *activating* interactions and an *inhibiting* one:
+  Example of a topology with three *activating* interactions and an *inhibiting* one:
   
   ::: {.blue-box .fitcontent}
   B -> A  

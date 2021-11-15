@@ -234,7 +234,7 @@ If the measured response is lower than the expected non-interaction one, a syner
 A negative value for the relative globaloutput $gl_{rel}$/`<number>` defines a synergistic response while a positive value an antogonistic one (so we can also **train the model for antagonism** between the two drugs).
 Given that the *observed* and *non-interaction* responses are in the $[0,1]$ interval (ranging from cell death to a cell proliferation state), their difference (the relative `globaloutput`) must belong in the $[-1,1]$ interval (ranging from a highly synergistic to a highly antagonistic relationship between the 2 drugs).
 
-For the calculation of the model's *fitness* we can use either an *HSA* (Highest Single Agent) **Condition** (as in the example above) where the format would be `Drug(A+B) < min(Drug(A),Drug(B))` (`A` and `B` are drugs defined in the [drug panel]) or a *Bliss* **Condition** [@BLISS1939], with the `Drug(A+B) < product(Drug(A),Drug(B))` format.
+For the calculation of the model's *fitness* we can use either an *HSA* (Highest Single Agent) **Condition** (as in the example above) where the format would be `Drug(A+B) < min(Drug(A),Drug(B))` (`A` and `B` are drugs defined in the [drug panel]) or a *Bliss* **Condition** [@Bliss1939], with the `Drug(A+B) < product(Drug(A),Drug(B))` format.
 In each case, we compute the attractors of 3 models: one perturbed with drug `A` alone, one perturbed with drug `B` alone and one perturbed with (the targets of) both drugs.
 Then, using the attractors of each model and Equation No. \@ref(eq:modeloutputs-norm), we compute each respective *normalized predicted* `globaloutput` as: $gl_A,gl_B,gl_{A+B}$.
 

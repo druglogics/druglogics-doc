@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Installation and Usage | DrugLogics Software Documentation</title>
   <meta name="description" content="Installation and Usage | DrugLogics Software Documentation" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Installation and Usage | DrugLogics Software Documentation" />
   <meta property="og:type" content="book" />
@@ -32,8 +32,9 @@
   
 <link rel="prev" href="drabme-description.html"/>
 <link rel="next" href="drug-panel.html"/>
-<script src="libs/header-attrs-2.6/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,10 +50,33 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -134,9 +158,9 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="drabme-install" class="section level2 unnumbered" number="">
+<div id="drabme-install" class="section level2 unnumbered">
 <h2>Installation and Usage</h2>
-<div id="install-1" class="section level3 unnumbered" number="">
+<div id="install-1" class="section level3 unnumbered">
 <h3>Install</h3>
 <p>Prerequisites: <code>maven 3.6.0</code> and <code>Java 8</code>.</p>
 <p>First, install <a href="gitsbe-install.html#gitsbe-install">Gitsbe</a>.
@@ -147,12 +171,12 @@ mvn clean install</code></pre>
 <p>The above command creates a package <code>&lt;name&gt;-jar-with-dependencies.jar</code> file with all dependencies installed, in the <code>target</code> directory.</p>
 <p>Alternatively, you could just use directly one of the <a href="https://github.com/druglogics/drabme/packages/">released drabme packages</a>.</p>
 <div class="note">
-<p>Note that <a href="drabme.html#drabme">Drabme</a> calculates attractors for the boolean models it generates using either the <a href="https://github.com/alanavc/BNReduction">BNReduction tool</a> <span class="citation">(Veliz-Cuba et al. <a href="references.html#ref-Veliz-Cuba2014" role="doc-biblioref">2014</a>)</span>, the <a href="https://github.com/colomoto/bioLQM">BioLQM</a> Java library <span class="citation">(Naldi <a href="references.html#ref-Naldi2018" role="doc-biblioref">2018</a>)</span> or <a href="https://github.com/pauleve/mpbn">the Most Permissive Boolean Networks</a> framework <span class="citation">(Paulevé et al. <a href="references.html#ref-Pauleve2020" role="doc-biblioref">2020</a>)</span>.
+<p>Note that <a href="drabme.html#drabme">Drabme</a> calculates attractors for the boolean models it generates using either the <a href="https://github.com/alanavc/BNReduction">BNReduction tool</a> <span class="citation">(<a href="references.html#ref-Veliz-Cuba2014" role="doc-biblioref">Veliz-Cuba et al. 2014</a>)</span>, the <a href="https://github.com/colomoto/bioLQM">BioLQM</a> Java library <span class="citation">(<a href="references.html#ref-Naldi2018" role="doc-biblioref">Naldi 2018</a>)</span> or <a href="https://github.com/pauleve/mpbn">the Most Permissive Boolean Networks</a> framework <span class="citation">(<a href="references.html#ref-Pauleve2020" role="doc-biblioref">Paulevé et al. 2020</a>)</span>.
 BioLQM is included by default in the code.
 The BNReduction and MPBN scripts have to be manually installed following the <a href="https://github.com/druglogics/druglogics-dep#readme">respective documentation</a>.</p>
 </div>
 </div>
-<div id="drabme-example" class="section level3 unnumbered" number="">
+<div id="drabme-example" class="section level3 unnumbered">
 <h3>Example</h3>
 <p>The recommended way to run Drabme is to use it’s <code>Launcher</code>.
 From the root directory of the repo run:</p>
@@ -161,7 +185,7 @@ java -cp ../target/drabme-1.2.0-jar-with-dependencies.jar eu.druglogics.drabme.L
 <p>or run the <code>mvn</code> profile directly (same input as the command above through the <code>pom.xml</code>):</p>
 <pre><code>mvn compile -P runExampleAGS</code></pre>
 </div>
-<div id="drabme-input" class="section level3 unnumbered" number="">
+<div id="drabme-input" class="section level3 unnumbered">
 <h3>Inputs</h3>
 <p>Running the Drabme <code>Launcher</code> with no parameters, generates a <strong>usage message</strong> with the available options.
 The <strong>required</strong> parameters are:</p>
@@ -177,7 +201,7 @@ The <strong>required</strong> parameters are:</p>
 <li><code>--perturbations</code>: <a href="perturbations.html#perturbations">perturbations file</a></li>
 </ul>
 </div>
-<div id="drabme-output" class="section level3 unnumbered" number="">
+<div id="drabme-output" class="section level3 unnumbered">
 <h3>Outputs</h3>
 <p>The expected outputs of Drabme’s <code>Launcher</code> can be classified into 3 categories of generated files (see also <a href="drabme-description.html#drabme-description">Description</a>):</p>
 <ol style="list-style-type: decimal">
@@ -188,7 +212,7 @@ The <strong>required</strong> parameters are:</p>
 </ul></li>
 <li><strong>Ensemble-wise</strong> results (or <strong>perturbation-wise</strong>)
 <ul>
-<li>A ensemble-wise <em>responses</em> file (for every tested <a href="perturbations.html#perturbations">perturbation</a>, the average response of all models that had a global output response - i.e. had an attractor<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>)</li>
+<li>A ensemble-wise <em>responses</em> file (for every tested <a href="perturbations.html#perturbations">perturbation</a>, the average response of all models that had a global output response - i.e. had an attractor)<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></li>
 <li>A ensemble-wise <em>synergies</em> file<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> (for every drug combination tested, a <em>synergy score</em> indicating how much synergistic that combination was - a more negative number means more synergistic, a positive number indicates antagonism)</li>
 </ul></li>
 <li>A <strong>model predictions</strong> file
@@ -220,7 +244,6 @@ In any case, the directory with all the output files when running the <code>Laun
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -239,6 +262,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": false
 },
 "fontsettings": {
@@ -259,6 +283,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

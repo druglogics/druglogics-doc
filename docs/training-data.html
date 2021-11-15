@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Training Data | DrugLogics Software Documentation</title>
   <meta name="description" content="Training Data | DrugLogics Software Documentation" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Training Data | DrugLogics Software Documentation" />
   <meta property="og:type" content="book" />
@@ -32,8 +32,9 @@
   
 <link rel="prev" href="gitsbe-install.html"/>
 <link rel="next" href="modeloutputs.html"/>
-<script src="libs/header-attrs-2.6/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,10 +50,33 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -134,7 +158,7 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="training-data" class="section level2 unnumbered" number="">
+<div id="training-data" class="section level2 unnumbered">
 <h2>Training Data</h2>
 <p>The training data file includes specific <em>condition-response</em> pairs (<strong>observations</strong>) which are used to calculate the fitness of the boolean models during the <strong>evolution</strong> process of the <a href="gitsbe-description.html#gitsbe-description">genetic algorithm</a>.
 For each observation, a different <em>fitness</em> score is calculated.
@@ -149,7 +173,7 @@ The format of each observation is:</p>
 </div>
 <p>The <strong>weight</strong> numbers (can be continuous values) are used after each individual observation <em>fitness</em> score has been calculated, to derive a <strong>total weighted average fitness score</strong> for the model which is <em>fitted</em> to the training data.</p>
 <p>We now present the currently <strong>supported observations</strong>:</p>
-<div id="unperturbed-condition---steady-state-response" class="section level3 unnumbered" number="">
+<div id="unperturbed-condition---steady-state-response" class="section level3 unnumbered">
 <h3>Unperturbed Condition - Steady State Response</h3>
 <p>Example:</p>
 <div class="blue-box fitcontent">
@@ -168,7 +192,7 @@ Thus, a boolean model with it’s attractors calculated, gets a fitness score fo
 <p>If a model has multiple attractors, then first we find the average number of matches across all attractors and then divide by the number of responses.
 For example, if the previous model had one more attractor for which the nodes perfectly matched the observed responses (so <span class="math inline">\(4\)</span> in total matches) we would have an average value of matches across the two attractors equal to <span class="math inline">\((4+3.453)/2=3.7265\)</span> and a <em>fitness</em> thus equal to <span class="math inline">\(3.7265/4\simeq0.93\)</span> (which makes sense since the second attractor matched better the observed state and thus <strong>boosted</strong> the fitness).</p>
 </div>
-<div id="unperturbed-condition---globaloutput-response" class="section level3 unnumbered" number="">
+<div id="unperturbed-condition---globaloutput-response" class="section level3 unnumbered">
 <h3>Unperturbed Condition - <code>globaloutput</code> Response</h3>
 <p>Example:</p>
 <div class="blue-box fitcontent">
@@ -186,7 +210,7 @@ We mostly define it as an <span class="math inline">\(1\)</span> in this kind of
 <span class="math display">\[fitness=1-abs(gl_{obs}-gl_{pred})\]</span></p>
 <p>where <span class="math inline">\(gl_{obs}\)</span> is the value defined in the <strong>Response</strong> (usually <span class="math inline">\(1\)</span> in this case).</p>
 </div>
-<div id="knockoutoverexpression-condition" class="section level3 unnumbered" number="">
+<div id="knockoutoverexpression-condition" class="section level3 unnumbered">
 <h3>Knockout/Overexpression Condition</h3>
 <p>Example:</p>
 <div class="blue-box fitcontent">
@@ -206,7 +230,7 @@ After the attractors of the modified model are calculated, we compute it’s <em
 <span class="math display">\[fitness=1-abs(gl_{obs}-gl_{pred})\]</span></p>
 <p>where <span class="math inline">\(gl_{obs}\)</span> is the value defined in the <strong>Response</strong> (usually <span class="math inline">\(0\)</span> in this case).</p>
 </div>
-<div id="single-drug" class="section level3 unnumbered" number="">
+<div id="single-drug" class="section level3 unnumbered">
 <h3>Single Drug Perturbation</h3>
 <p>Example:</p>
 <div class="blue-box fitcontent">
@@ -225,7 +249,7 @@ Same logic if the drug had <em>activating</em> targets - the respective equation
 <span class="math display">\[fitness=1-abs(gl_{obs}-gl_{pred})\]</span></p>
 <p>where <span class="math inline">\(gl_{obs}\)</span> is the value defined in the <strong>Response</strong> (usually <span class="math inline">\(0\)</span> in this case).</p>
 </div>
-<div id="double-drug" class="section level3 unnumbered" number="">
+<div id="double-drug" class="section level3 unnumbered">
 <h3>Double Drug Perturbation</h3>
 <p>Example:</p>
 <div class="blue-box fitcontent">
@@ -240,7 +264,7 @@ globaloutput:-0.2<br />
 If the measured response is lower than the expected non-interaction one, a synergy is defined and the <em>excess</em> - the relative <code>globaloutput</code> (<span class="math inline">\(gl_{rel}\)</span>) between the actual response and the predicted non-interaction response - is used as input in the <strong>Response</strong> (format: <code>globaloutput:&lt;number&gt;</code>).</p>
 <p>A negative value for the relative globaloutput <span class="math inline">\(gl_{rel}\)</span>/<code>&lt;number&gt;</code> defines a synergistic response while a positive value an antogonistic one (so we can also <strong>train the model for antagonism</strong> between the two drugs).
 Given that the <em>observed</em> and <em>non-interaction</em> responses are in the <span class="math inline">\([0,1]\)</span> interval (ranging from cell death to a cell proliferation state), their difference (the relative <code>globaloutput</code>) must belong in the <span class="math inline">\([-1,1]\)</span> interval (ranging from a highly synergistic to a highly antagonistic relationship between the 2 drugs).</p>
-<p>For the calculation of the model’s <em>fitness</em> we can use either an <em>HSA</em> (Highest Single Agent) <strong>Condition</strong> (as in the example above) where the format would be <code>Drug(A+B) &lt; min(Drug(A),Drug(B))</code> (<code>A</code> and <code>B</code> are drugs defined in the <a href="drug-panel.html#drug-panel">drug panel</a>) or a <em>Bliss</em> <strong>Condition</strong> <span class="citation">(Bliss <a href="references.html#ref-BLISS1939" role="doc-biblioref">1939</a>)</span>, with the <code>Drug(A+B) &lt; product(Drug(A),Drug(B))</code> format.
+<p>For the calculation of the model’s <em>fitness</em> we can use either an <em>HSA</em> (Highest Single Agent) <strong>Condition</strong> (as in the example above) where the format would be <code>Drug(A+B) &lt; min(Drug(A),Drug(B))</code> (<code>A</code> and <code>B</code> are drugs defined in the <a href="drug-panel.html#drug-panel">drug panel</a>) or a <em>Bliss</em> <strong>Condition</strong> <span class="citation">(<a href="references.html#ref-BLISS1939" role="doc-biblioref">Bliss 1939</a>)</span>, with the <code>Drug(A+B) &lt; product(Drug(A),Drug(B))</code> format.
 In each case, we compute the attractors of 3 models: one perturbed with drug <code>A</code> alone, one perturbed with drug <code>B</code> alone and one perturbed with (the targets of) both drugs.
 Then, using the attractors of each model and Equation No. <a href="modeloutputs.html#eq:modeloutputs-norm">(2)</a>, we compute each respective <em>normalized predicted</em> <code>globaloutput</code> as: <span class="math inline">\(gl_A,gl_B,gl_{A+B}\)</span>.</p>
 <p>Then:</p>
@@ -262,7 +286,6 @@ Then, using the attractors of each model and Equation No. <a href="modeloutputs
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -281,6 +304,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": false
 },
 "fontsettings": {
@@ -301,6 +325,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

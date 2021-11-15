@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Configuration | DrugLogics Software Documentation</title>
   <meta name="description" content="Configuration | DrugLogics Software Documentation" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Configuration | DrugLogics Software Documentation" />
   <meta property="og:type" content="book" />
@@ -32,8 +32,9 @@
   
 <link rel="prev" href="modeloutputs.html"/>
 <link rel="next" href="drabme.html"/>
-<script src="libs/header-attrs-2.6/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,10 +50,33 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -134,13 +158,13 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="gitsbe-config" class="section level2 unnumbered" number="">
+<div id="gitsbe-config" class="section level2 unnumbered">
 <h2>Configuration</h2>
 <p>The configuration file includes options that are common between <a href="gitsbe.html#gitsbe">Gitsbe</a> and <a href="drabme.html#drabme">Drabme</a> (see <a href="gitsbe-config.html#general">General</a> and <a href="gitsbe-config.html#attractor-tool">Attractor Tool</a> options), those that are Gitsbe-specific (see <a href="gitsbe-config.html#export">Export</a> and <a href="gitsbe-config.html#genetic-algorithm">Genetic Algorithm</a> options) and those that are <a href="drabme-config.html#drabme-config">Drabme-specific</a>.</p>
 <div class="note">
 <p>The format of each configuration option in the file must be: <code>&lt;parameter&gt;:  &lt;value&gt;</code> (<em>tab-separated</em>)</p>
 </div>
-<div id="general" class="section level3 unnumbered" number="">
+<div id="general" class="section level3 unnumbered">
 <h3>General</h3>
 <ul>
 <li><p><code>verbosity</code>. Allowed values: <span class="math inline">\(0\)</span>-<span class="math inline">\(3\)</span> (<span class="math inline">\(0\)</span> = nothing, <span class="math inline">\(3\)</span> = everything).</p>
@@ -160,23 +184,23 @@ This option is usually used when the <code>verbosity</code> is <span class="math
 A good value for this option would be to have <strong>as many parallel simulations as the machine’s cores</strong> but we advise to reduce it if too many parallel simulations are causing issues.</p></li>
 </ul>
 </div>
-<div id="attractor-tool" class="section level3 unnumbered" number="">
+<div id="attractor-tool" class="section level3 unnumbered">
 <h3>Attractor Tool</h3>
 <ul>
 <li><p><code>attractor_tool</code>: tool to use for the calculation of attractors.</p>
 <p>Allowed values: <code>bnet_reduction</code>, <code>bnet_reduction_reduced</code>, <code>biolqm_stable_states</code>, <code>biolqm_trapspaces</code>, <code>mpbn_trapspaces</code>.</p>
-<p>The first two options use the <a href="https://github.com/alanavc/BNReduction">BNReduction tool</a> <span class="citation">(Veliz-Cuba et al. <a href="references.html#ref-Veliz-Cuba2014" role="doc-biblioref">2014</a>)</span>, next two the <a href="https://github.com/colomoto/bioLQM">BioLQM</a> Java library <span class="citation">(Naldi <a href="references.html#ref-Naldi2018" role="doc-biblioref">2018</a>)</span> and the last one the <a href="https://github.com/pauleve/mpbn">Most Permissive Boolean Networks</a> framework <span class="citation">(Paulevé et al. <a href="references.html#ref-Pauleve2020" role="doc-biblioref">2020</a>)</span>.
+<p>The first two options use the <a href="https://github.com/alanavc/BNReduction">BNReduction tool</a> <span class="citation">(<a href="references.html#ref-Veliz-Cuba2014" role="doc-biblioref">Veliz-Cuba et al. 2014</a>)</span>, next two the <a href="https://github.com/colomoto/bioLQM">BioLQM</a> Java library <span class="citation">(<a href="references.html#ref-Naldi2018" role="doc-biblioref">Naldi 2018</a>)</span> and the last one the <a href="https://github.com/pauleve/mpbn">Most Permissive Boolean Networks</a> framework <span class="citation">(<a href="references.html#ref-Pauleve2020" role="doc-biblioref">Paulevé et al. 2020</a>)</span>.
 Follow the <a href="https://github.com/druglogics/druglogics-dep#readme">respective documentation</a> to install and enable the two BNReduction-based versions and the MPBN <code>Python</code> script (BioLQM is included by default).</p>
 <p>The <code>bnet_reduction</code> and <code>biolqm_stable_states</code> options calculate <strong>all the fixpoints</strong> of the boolean models.
 The <code>bnet_reduction_reduced</code> works only if the model has <strong>one fixpoint attractor</strong> (or none).
 Note though that there can be models that have one fixpoint and the <em>reduced</em> BNReduction version is not able to find it.
 It’s advantage rests on the simple fact that <strong>it’s much faster for larger networks</strong> and when self-contained network models are used, it gets most of the results correctly (self-contained models usually don’t have many fixpoints).</p>
 <p>The <code>biolqm_trapspaces</code> and <code>mpbn_trapspaces</code> options calculate the <em>terminal</em> trapspaces (see respective <a href="http://colomoto.org/biolqm/doc/tools-trapspace.html">BioLQM documentation</a> and <a href="https://mpbn.readthedocs.io/">MPBN documentation</a>).
-These kind of trapspaces are also called <em>minimal</em> <span class="citation">(Klarner, Bockmayr, and Siebert <a href="references.html#ref-Klarner2015" role="doc-biblioref">2015</a>)</span>.
+These kind of trapspaces are also called <em>minimal</em> <span class="citation">(<a href="references.html#ref-Klarner2015" role="doc-biblioref">Klarner, Bockmayr, and Siebert 2015</a>)</span>.
 The <code>mpbn_trapspaces</code> option <strong>is a lot faster in general</strong>, but for smaller networks (<span class="math inline">\(&lt;100\)</span> nodes) it’s best to use BioLQM’s implementation since there is an I/O call overhead when using the MPBN Python script.</p></li>
 </ul>
 </div>
-<div id="export" class="section level3 unnumbered" number="">
+<div id="export" class="section level3 unnumbered">
 <h3>Export</h3>
 <p>Options for <strong>trimming</strong> the <a href="gitsbe-install.html#gitsbe-input">initial network file</a>:</p>
 <ul>
@@ -205,7 +229,7 @@ The <code>mpbn_trapspaces</code> option <strong>is a lot faster in general</stro
 <li>Model’s name</li>
 <li>Model’s fitness score (gained via fitting to the <a href="training-data.html#training-data">training data</a>)</li>
 <li>Model’s attractors, if they are calculated (<code>stablestate</code> or <code>trapspace</code> - one per line)</li>
-<li>The boolean equations, in <em>BooleanNet</em> format <span class="citation">(Albert et al. <a href="references.html#ref-Albert2008" role="doc-biblioref">2008</a>)</span></li>
+<li>The boolean equations, in <em>BooleanNet</em> format <span class="citation">(<a href="references.html#ref-Albert2008" role="doc-biblioref">Albert et al. 2008</a>)</span></li>
 <li>A mapping between node names and variables (mainly used with the <a href="https://github.com/alanavc/BNReduction">BNReduction tool</a>)</li>
 </ul></li>
 <li><p><code>export_to_sif</code>. Logical (<code>true</code> or <code>false</code>)</p>
@@ -219,13 +243,13 @@ A -| C</p>
 </div></li>
 <li><p><code>export_to_ginml</code>. Logical (<code>true</code> or <code>false</code>)</p>
 <p>GINsim’s XML-based <a href="http://www.colomoto.org/formats/ginml.html">GINML format</a>.
-This export is enabled via the BioLQM library <span class="citation">(Naldi <a href="references.html#ref-Naldi2018" role="doc-biblioref">2018</a>)</span>.</p></li>
+This export is enabled via the BioLQM library <span class="citation">(<a href="references.html#ref-Naldi2018" role="doc-biblioref">Naldi 2018</a>)</span>.</p></li>
 <li><p><code>export_to_sbml_qual</code>. Logical (<code>true</code> or <code>false</code>)</p>
 <p><a href="http://www.colomoto.org/formats/sbml-qual.html">SBML-qual</a> is an extension of the <em>Systems Biology Markup Language (SBML)</em> Level 3 standard, designed for the representation of multivalued qualitative models of biological networks.
-This export is enabled via the BioLQM library <span class="citation">(Naldi <a href="references.html#ref-Naldi2018" role="doc-biblioref">2018</a>)</span>.</p></li>
+This export is enabled via the BioLQM library <span class="citation">(<a href="references.html#ref-Naldi2018" role="doc-biblioref">Naldi 2018</a>)</span>.</p></li>
 <li><p><code>export_to_boolnet</code>. Logical (<code>true</code> or <code>false</code>)</p>
-<p>The R package’s <em>BoolNet</em> format <span class="citation">(Müssel, Hopfensitz, and Kestler <a href="references.html#ref-Mussel2010" role="doc-biblioref">2010</a>)</span>.
-This export is also enabled via the BioLQM library <span class="citation">(Naldi <a href="references.html#ref-Naldi2018" role="doc-biblioref">2018</a>)</span>.
+<p>The R package’s <em>BoolNet</em> format <span class="citation">(<a href="references.html#ref-Mussel2010" role="doc-biblioref">Müssel, Hopfensitz, and Kestler 2010</a>)</span>.
+This export is also enabled via the BioLQM library <span class="citation">(<a href="references.html#ref-Naldi2018" role="doc-biblioref">Naldi 2018</a>)</span>.
 Example:</p>
 <div class="blue-box fitcontent">
 <p>targets, factors<br />
@@ -243,7 +267,7 @@ The export formats are the same as the three last ones described above:</p>
 <li><code>best_models_export_to_boolnet</code>. Logical (<code>true</code> or <code>false</code>)</li>
 </ul>
 </div>
-<div id="genetic-algorithm" class="section level3 unnumbered" number="">
+<div id="genetic-algorithm" class="section level3 unnumbered">
 <h3>Genetic Algorithm</h3>
 <p>The following options are used to initialize, configure and calibrate the <a href="gitsbe-description.html#gitsbe-description">genetic algorithm of Gitsbe</a>:</p>
 <ul>
@@ -321,7 +345,6 @@ Then, a value of <span class="math inline">\(1\)</span> for the <code>*_factor</
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -340,6 +363,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": false
 },
 "fontsettings": {
@@ -360,6 +384,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>DrugLogics Software Documentation</title>
   <meta name="description" content="DrugLogics Software Documentation" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="DrugLogics Software Documentation" />
   <meta property="og:type" content="book" />
@@ -32,8 +32,9 @@
   
 
 <link rel="next" href="gitsbe.html"/>
-<script src="libs/header-attrs-2.6/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,10 +50,33 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -137,12 +161,12 @@
 <div id="header">
 <h1 class="title">DrugLogics Software Documentation</h1>
 <p class="author"><em>John Zobolas</em></p>
-<p class="date"><em>Last updated: 27 February, 2021</em></p>
+<p class="date"><em>Last updated: 15 November, 2021</em></p>
 </div>
-<div id="introduction" class="section level1 unnumbered" number="">
+<div id="introduction" class="section level1 unnumbered">
 <h1>Introduction</h1>
 <p>This is an online documentation for some of the software packages in the <a href="https://github.com/druglogics/">druglogics GitHub organisation</a>.
-It’s created using the bookdown package <span class="citation">(Xie <a href="references.html#ref-bookdown2016" role="doc-biblioref">2016</a>)</span>.
+It’s created using the bookdown package <span class="citation">(<a href="references.html#ref-bookdown2016" role="doc-biblioref">Xie 2016</a>)</span>.
 The following packages are fully documented in this manual:</p>
 <ul>
 <li><a href="gitsbe.html#gitsbe">Gitsbe</a></li>
@@ -170,7 +194,6 @@ A generator of all possible boolean models with AND/OR-NOT link operators.</li>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -189,6 +212,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": false
 },
 "fontsettings": {
@@ -209,6 +233,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

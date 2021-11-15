@@ -19,7 +19,7 @@ Next, we focus our discussion on **two-drug combinations** for ease of understan
 
 ---
 
-The most simple mathematical models that are used to evaluate if two drugs are synergistic or not, are the *HSA* (Highest Single Agent) and *Bliss Independence* [@Bliss1939] models.
+The most simple mathematical models that are used to evaluate if two drugs are synergistic or not, are the *HSA* (Highest Single Agent) [@gaddum1940pharmacology] and *Bliss Independence* [@Bliss1939] models.
 The simplicity of these models lies in the fact that they are *effect*-based (or equivalently *response*-based in our case ^[Note that the term *effect* is used complementary to the term *response*, i.e. the higher the effect of the drug, the smaller the [output response or viability](#modeloutputs-tip), which is exactly what the calculated *global output responses* of the perturbed models are]) and do not depend on the dosages of the drugs tested (like *Loewe*'s model for example [@Loewe1928]).
 Thus, they fit perfectly with the simulation data Drabme produces - i.e. the perturbed models' response values.
 

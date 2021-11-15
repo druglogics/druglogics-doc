@@ -260,8 +260,9 @@ CASP9 &emsp; -1
 FOXO3 &emsp; -1
 :::
 
-The nodes are *tab-separated* with the values and indicate the entities that directly influence the cell's global *signaling output* or *growth*: nodes that have a *negative* output value weight contribute to **cell death** through various means (e.g. `CASP8`) and nodes that have a *positive* value contribute to **cell proliferation** (e.g. `MYC`).
-We allow only integer values for the node weights while their magnitude allows to distinct each node by how much do they influence cell death/proliferation: for example, a weight of $-2$ for the node `CASP8` would make it twice more important for cell death as a node who has a value of $-1$.
+The nodes are *tab-separated* with the values and indicate the entities that directly influence the cell's global *signaling output* or *growth*: nodes that have a *negative* weight contribute to **cell death** through various means (e.g. `CASP8`) and nodes that have a *positive* weight contribute to **cell proliferation** (e.g. `MYC`).
+We allow only integer values for the node weights.
+The difference between weights allows us to distinguish each node by how much they influence cell death/proliferation: for example, a weight of $-2$ for the node `CASP8` would make it twice more important for cell death as a node who has a value of $-1$.
 
 So, whenever we need to calculate a (predicted) **signaling output or growth value** for a boolean model (e.g. for most of the [training data observations](#training-data)) and for which we already have it's attractors (stable states or terminal trapspaces), we find the **values of the modeloutput nodes in each attractor** (can be either $1$, $0$ or a dash ($-$): *active*, *inactive* or the node's activity oscillates between the two) and calculate the following weighted average score across all attractors:
 

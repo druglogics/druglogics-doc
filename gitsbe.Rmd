@@ -486,7 +486,7 @@ The following options are used to initialize, configure and calibrate the [genet
   After the models of each generation are created, the **mutation phase** takes place, during which a number of possible mutations are introduced to the models.
   The 4 different kind of mutations that can be applied to randomly chosen [default equation](#default-equation) of a logical model are:
 
-:::{.green-box}
+:::{.green-box #mutation-types}
   - **Balance**: *and not* <=> *or not*. Also called *link operator* mutations.
   - **Random**: *(A or B)* <=> *(A and B)*. A change of boolean operator which denotes a different relationship between the entities (e.g. family nodes vs complex nodes).
   - **Shuffle**: *(A or (B and C))* <=> *(B or (A and C))*. Also called *priority* mutations.
